@@ -1,10 +1,10 @@
-import { TestAppPage } from './app.po';
+import { BtcWalletPage } from './app.po';
 
-describe('test-app App', () => {
-  let page: TestAppPage;
+describe('btc-wallet App', () => {
+  let page: BtcWalletPage;
 
   beforeEach(() => {
-    page = new TestAppPage();
+    page = new BtcWalletPage();
   });
 
   it('should display welcome message', () => {
