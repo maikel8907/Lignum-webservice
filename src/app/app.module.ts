@@ -1,37 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
+// Component
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './share/navbar/navbar.component';
+import { SidebarComponent } from './share/sidebar/sidebar.component';
 import { HeaderComponent } from './share/header/header.component';
-import { WalletComponent } from './component/wallet/wallet.component';
-import { PopupComponent } from './share/popup/popup.component';
+import { PopupComponent } from './wallet/components/popup/popup.component';
+
+// Module
+import { LoadingModule } from './loading/index';
+
+const route = [
+  {
+    path: '',
+    component: PopupComponent
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
+    SidebarComponent,
     HeaderComponent,
-    WalletComponent,
-    NavbarComponent,
     PopupComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'wallet',
-        component: WalletComponent
-      },
-      {
-        path: '',
-        redirectTo: '/wallet',
-        pathMatch: 'full'
-      }
-    ]),
-    NgbModule.forRoot()
+    LoadingModule,
+    RouterModule.forRoot(route)
   ],
   providers: [],
   bootstrap: [AppComponent]

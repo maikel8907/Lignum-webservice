@@ -1,6 +1,8 @@
-<section class="body-container">
-  <app-navbar></app-navbar>
-  <div class="w3-padding-large" id="main">
+<app-loading *ngIf="!isLoaded"></app-loading>
+<app-header></app-header>
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
     <router-outlet></router-outlet>
   </div>
-</section>
+</div>

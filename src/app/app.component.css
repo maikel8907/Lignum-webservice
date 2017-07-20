@@ -1,0 +1,11 @@
+.container {
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.main-content {
+  width: 75%;
+}

@@ -1,0 +1,32 @@
+.popup {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px;
+  border: 1px solid #000;
+}
+
+.popup p.title {
+  font-size: 30px;
+}
+
+.popup p.input {
+  margin-top: 70px;
+}
+
+.popup input {
+  width: 80%;
+  height: 45px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.popup i {
+  font-size: 140px;
+}
+
+.popup button {
+  box-shadow: none;
+  border: 0;
+  padding: 20px 70px;
+  font-size: 20px;
+}
