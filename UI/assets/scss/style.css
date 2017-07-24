@@ -1,0 +1,77 @@
+/*
+  IMPORT FONTS
+*/
+
+@font-face {
+  font-family: avenir;
+  src: url('../fonts/avenir.otf');
+}
+
+/*
+  GLOBAL CSS
+*/
+
+body {
+  font-family: avenir;
+  margin: 0;
+  padding: 0;
+}
+
+body>div.container {
+  display: flex;
+  height: 100%;
+  background: black;
+}
+
+ul {
+  padding-left: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+  SIDEBAR
+*/
+
+aside.main {
+  padding: 0 42px;
+  margin: 0 auto;
+  text-align: center;
+  background: #114B5F;
+}
+
+aside.main>div.container {
+  height: calc(100% - 250px);
+  padding: 50px 63px 200px 63px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+aside.main div.logo img {
+  width: 202px;
+  height: 164px;
+}
+
+aside.main div.balance {
+  padding-top: 60px;
+  font-size: 26px;
+  color: #E0F2F6;
+}
+
+aside.main nav.side-menu li {
+  list-style: none;
+}
+
+aside.main nav.side-menu li a {
+  color: #27ABBE;
+  font-size: 26px;
+}
+/*
+  CSS FOR SPECIFIC PAGE
