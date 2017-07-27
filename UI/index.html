@@ -50,14 +50,14 @@
           <p>Device to computer</p>
         </div>
       </div>
-      <div class="popup">
+      <div id="connected" class="popup">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
         <div class="pannel">
           <div class="container">
             <p class="heading">Device Connected</p>
             <p class="description">Now you can configure your device</p>
-            <div class="logo">
+            <div class="icon">
               <img src="./assets/icons/phone.png">
             </div>
           </div>
@@ -66,7 +66,7 @@
           </div>
         </div>
       </div>
-      <div id="connected" class="popup">
+      <div id="get-device-name" class="popup">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
         <div class="pannel">
@@ -74,9 +74,213 @@
             <p class="heading">Welcome to Icellet Setup!</p>
             <p class="description">Setting up your device will only take a few minutes.</p>
             <p class="description">When you're done. You can start using your wallet.</p>
-            <div class="logo">
-              <img src="./assets/icons/phone.png">
+            <div class="input">
+              <input type="text"  placeholder="Please enter your device name!" />
             </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="get-device-pin" class="popup pin">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="description">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>
+            <div class="virtual-keyboard">
+              <ul>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+              </ul>
+              <div class="value-container">
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+              </div>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="confirm-device-pin" class="popup pin">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="description">Please Reenter.</p>
+            <p class="description">The NEW PIN</p>
+            <div class="virtual-keyboard">
+              <ul>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+              </ul>
+              <div class="value-container">
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+                <span class="item"></span>
+              </div>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="recovery-setup" class="popup recovery">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Recovery Seed Setup</p>
+            <p class="description">
+              On your DEVICE. You will now see a unique combination of 24 words,
+              which will allow you to recover your accounts in case you lose your device.
+              The orders of the words is very important. Please write down all these words
+              carefully. Never make a digital copy of your recovery seed and never upload it online.
+              Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses
+              incurred through the client's improper care of sensitive information
+            </p>
+            <div class="icon">
+              <img src="./assets/icons/pencil.png">
+            </div>
+            <p class="sub-description">
+              Writedown the 24 words from the DEVICE into the recovery card.
+            </p>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="word-confirmation" class="popup word-confirmation">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Recovery Seed Setup</p>
+            <p class="description">In the list below, select the word <b>number 12</b> of the recovery sheet</p>
+            <div class="word-list">
+              <ul>
+                <li>Computer</li>
+                <li>Classic</li>
+                <li>Screen</li>
+                <li>Purple</li>
+                <li>Earth</li>
+                <li>Leopard</li>
+              </ul>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Next</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="word-confirmation1" class="popup word-confirmation">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Confirmation</p>
+            <p class="description">In the list below, select the word <b>number 3</b> of the recovery sheet</p>
+            <div class="word-list">
+              <ul>
+                <li>Computer</li>
+                <li>Classic</li>
+                <li>Screen</li>
+                <li>Purple</li>
+                <li>Earth</li>
+                <li>Leopard</li>
+              </ul>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Back</a>
+            <a class="btn cancel-btn" href="#">Continue</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="configurated-confirmation" class="popup recovery">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Confirmation</p>
+            <p class="description">Please wait a few seconds. While your device is being configurated</p>
+            <p class="sub-description">
+              Do not Power Off your device
+            </p>
           </div>
           <div class="close-btn">
             x

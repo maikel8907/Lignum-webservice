@@ -45,9 +45,9 @@ a {
   text-decoration: none;
 }
 
-/*
-  SIDEBAR
-*/
+/*--------------------------------------------
+//  SIDEBAR
+--------------------------------------------*/
 
 aside.main {
   padding: 0 42px;
@@ -99,9 +99,13 @@ aside.main nav.side-menu li a {
   display: block;
 }
 
-/*
+/*--------------------------------------------
+//  END OF SIDEBAR
+--------------------------------------------*/
+
+/*-------------------------------------------
   MAIN SECTION(WHERE USER INTERACT WITH)
-*/
+-------------------------------------------*/
 
 section.main {
   width: calc(100% - 300px);
@@ -145,19 +149,21 @@ div.popup div.overlay {
   width: 100%;
   height: 100%; 
   background: #04151B;
-  opacity: 0.9;
+  opacity: 0.3;
 }
 
 div.popup div.pannel {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 875px;
+  font-family: lato;
+  width: 100%;
+  max-width: 875px;
   height: 753px;
-  padding-top: 114px;
+  padding-top: 114px; padding-bottom: 80px;
   position: fixed;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: -webkit-radial-gradient(circle, #114B5F, #093442);
   background: -o-radial-gradient(circle, #114B5F, #093442);
   background: -moz-radial-gradient(circle, #114B5F, #093442);
@@ -172,13 +178,33 @@ div.popup div.pannel>div.container {
   margin: 0 auto;
 }
 
-div.popup div.pannel p {
+div.popup div.pannel p.heading {
   font-size: 26px;
   color: #E0F2F6;
+  padding-bottom: 25px;
 }
 
-div.popup div.pannel div.logo {
-  margin-top: 167px;
+div.popup div.pannel p.description {
+  font-size: 20px;
+  color: #E0F2F6;
+  padding-bottom: 10px;
+  line-height: 30px;
+  text-align: center;
+}
+
+div.popup div.pannel p.sub-description {
+  position: absolute;
+  font-size: 18px;
+  color: #E0F2F6;
+  padding-bottom: 10px;
+  line-height: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 div.popup div.pannel div.close-btn {
@@ -189,10 +215,172 @@ div.popup div.pannel div.close-btn {
   cursor: pointer;
 }
 
+div.popup div.pannel div.input {
+  margin-top: 168px;
+}
+
+div.popup div.pannel div.input input {
+  padding: 12px;
+  font-size: 22px;
+  width: 100%;
+  text-align: center;
+  color: #1E4D59;
+  border: 0;
+  border-radius: 5px;
+  background: #E0F2F6;
+}
+
+div.popup div.pannel div.enter-cancel-btn {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+div.popup div.pannel div.enter-cancel-btn a {
+  text-decoration: none;
+  color: #27ABBE;
+  padding: 0 27px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 /*
-  HIDE UNUSE COMPONENT
+  UNIQUE STYLE FOR SPECIFIC POPUP
 */
 
-div#connected.popup {
-  display: none;
+/*
+  SMALLER CONTAINER
+*/
+div.pin.popup div.pannel div.container,
+div.recovery.popup div.pannel div.container,
+div.word-confirmation.popup div.pannel div.container {
+  max-width: 374px;
+}
+
+/*
+  SMALLER PADDING FOR HEADING
+*/
+div.recovery.popup div.pannel,
+div.word-confirmation.popup div.pannel {
+  padding-top: 60px;
+}
+
+/*
+  CONNECTED
+*/
+
+div.connected.popup div.pannel div.icon {
+  margin-top: 167px;
+}
+
+/*
+  VIRTUAL KEYBOARD
+*/
+div.pin.popup div.pannel div.virtual-keyboard li.key {
+  list-style: none;
+  height: 80px;
+  width: 80px;
+  border: 5px solid #27ABBE;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s;  
+}
+
+div.pin.popup div.pannel div.virtual-keyboard ul>div.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+div.pin.popup div.pannel div.virtual-keyboard li.key:after {
+  content: "";
+  height: 22px;
+  width: 22px;
+  display: block;
+  background: #E0F2F6;
+  border-radius: 50px;
+}
+
+div.pin.popup div.pannel div.virtual-keyboard div.value-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+div.pin.popup div.pannel div.virtual-keyboard div.value-container span.item {
+  height: 15px;
+  width: 15px;
+  background: #E0F2F6;
+  display: block;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
+/*
+  HOVER STYLE FOR VIRTUAL KEYBOARD
+*/
+
+div.pin.popup div.pannel div.virtual-keyboard li.key:hover {
+  background: #E0F2F6;
+  border: 5px solid #E0F2F6;
+  cursor: pointer;
+}
+
+div.pin.popup div.pannel div.virtual-keyboard li.key:hover:after {
+  background: #27ABBE;
+}
+
+/*
+  RECOVERY SETUP POPUP
+*/
+
+div#recovery-setup.popup div.pannel div.icon {
+  padding-top: 60px;
+  margin: 50px 0px;
+  padding: 0;
+}
+
+/*
+  WORD CONFIRMATION
+*/
+
+div.word-confirmation.popup div.pannel div.word-list li {
+  list-style: none;
+  font-size: 22px;
+  color: #E0F2F6;
+  padding: 15px 136px;
+  background: #028394;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+/*
+  HOVER FOR WORD CONFIRMATION LIST
+*/
+
+div.word-confirmation.popup div.pannel div.word-list li:hover {
+  background: #F7B32B;
+}
+
+/*-------------------------------------------
+// END OF MAIN SECTION
+-------------------------------------------*/
+
+/*
+  HIDE UNUSED COMPONENT
+*/
+
+div#connected.popup, 
+div#get-device-name.popup,
+div#get-device-pin.popup,
+div#confirm-device-pin.popup,
+div#recovery-setup.popup,
+div#word-confirmation.popup,
+div#word-confirmation1.popup {
+  display: none !important;
 }
