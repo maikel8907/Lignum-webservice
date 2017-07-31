@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <aside class="main">
+    <aside class="sidebar main">
       <div class="container">
         <div class="top-container">
           <div class="logo">
@@ -50,37 +50,16 @@
           <p>Device to computer</p>
         </div>
       </div>
-      <div id="connected" class="popup">
+      <div id="done" class="popup recovery">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
         <div class="pannel">
           <div class="container">
-            <p class="heading">Device Connected</p>
-            <p class="description">Now you can configure your device</p>
-            <div class="icon">
-              <img src="./assets/icons/phone.png">
-            </div>
-          </div>
-          <div class="close-btn">
-            x
-          </div>
-        </div>
-      </div>
-      <div id="get-device-name" class="popup">
-        <!-- overlay to make screenblur -->
-        <div class="overlay"></div>
-        <div class="pannel">
-          <div class="container">
-            <p class="heading">Welcome to Icellet Setup!</p>
-            <p class="description">Setting up your device will only take a few minutes.</p>
-            <p class="description">When you're done. You can start using your wallet.</p>
-            <div class="input">
-              <input type="text"  placeholder="Please enter your device name!" />
-            </div>
-          </div>
-          <div class="enter-cancel-btn">
-            <a class="btn enter-btn" href="#">Enter</a>
-            <a class="btn cancel-btn" href="#">Cancel</a>
+            <p class="heading">Confirmation</p>
+            <p class="description">Please wait a few seconds. While your device is being configurated</p>
+            <p class="sub-description">
+              Do not Power Off your device
+            </p>
           </div>
           <div class="close-btn">
             x
@@ -271,32 +250,37 @@
           </div>
         </div>
       </div>
-      <div id="configurated-confirmation" class="popup recovery">
+      <div id="get-device-name" class="popup">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
         <div class="pannel">
           <div class="container">
-            <p class="heading">Confirmation</p>
-            <p class="description">Please wait a few seconds. While your device is being configurated</p>
-            <p class="sub-description">
-              Do not Power Off your device
-            </p>
+            <p class="heading">Welcome to Icellet Setup!</p>
+            <p class="description">Setting up your device will only take a few minutes.</p>
+            <p class="description">When you're done. You can start using your wallet.</p>
+            <div class="input">
+              <input type="text"  placeholder="Please enter your device name!" />
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
           </div>
           <div class="close-btn">
             x
           </div>
         </div>
       </div>
-      <div id="done" class="popup recovery">
+      <div id="connected" class="popup">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
         <div class="pannel">
           <div class="container">
-            <p class="heading">Confirmation</p>
-            <p class="description">Please wait a few seconds. While your device is being configurated</p>
-            <p class="sub-description">
-              Do not Power Off your device
-            </p>
+            <p class="heading">Device Connected</p>
+            <p class="description">Now you can configure your device</p>
+            <div class="icon">
+              <img src="./assets/icons/phone.png">
+            </div>
           </div>
           <div class="close-btn">
             x
@@ -306,4 +290,48 @@
     </section>
   </div>
 </body>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+  window.onload = function() {
+    var connected = document.querySelector('div#connected');
+    var getDeviceName = document.querySelector('div#get-device-name');
+    var confirmDevice = document.querySelector('div#confirm-device-pin');
+    var recoverySetup = document.querySelector('div#recovery-setup');
+    var wordConfirmation = document.querySelector('div#word-confirmation');
+    var wordConfirmation1 = document.querySelector('div#word-confirmation1');
+    var configuratedConfirmation = document.querySelector('div#configurated-confirmation');
+
+    getDeviceName.querySelector('a.btn.enter-btn').addEventListener('click', function() {
+      getDeviceName.style.display = 'none';
+    });
+
+    getDeviceName.querySelector('a.btn.cancel-btn').addEventListener('click', function() {
+      getDeviceName.style.display = 'none';
+    });
+
+    setTimeout(function() {
+      connected.style.display = 'none';
+    }, 2000);
+
+
+    $(wordConfirmation).find('a.btn').click(function() {
+      wordConfirmation.style.display = 'none';
+    });
+
+    $(wordConfirmation1).find('a.btn').click(function() {
+      wordConfirmation1.style.display = 'none';
+      setTimeout(function() {
+        recoverySetup.style.display = 'none';
+      }, 2000);
+    });
+
+    $(confirmDevice).find('a.btn').click(function() {
+      wordConfirmation.style.display = 'none';
+    });    
+    
+  }
+</script>
 </html>

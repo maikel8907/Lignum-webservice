@@ -49,7 +49,7 @@ a {
 //  SIDEBAR
 --------------------------------------------*/
 
-aside.main {
+aside.sidebar {
   padding: 0 42px;
   text-align: center;
   max-width: 300px;
@@ -58,10 +58,25 @@ aside.main {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-right: 3px solid #114B5F;
+  position: fixed;
+  z-index: 10;
 }
 
-aside.main>div.container {
+aside.sidebar>div.container {
   height: 100%;
+}
+
+aside.sidebar li {
+  list-style: none;
+}
+
+aside.sidebar a {
+  transition: color 0.5s;
+}
+
+aside.sidebar a:hover {
+  color: #fa9c00 !important;
+  background: #114b5f;
 }
 
 aside.main>div.container div.top-container {
@@ -88,15 +103,26 @@ aside.main div.balance {
   color: #E0F2F6;
 }
 
-aside.main nav.side-menu li {
-  list-style: none;
-}
-
-aside.main nav.side-menu li a {
+aside.sidebar nav.side-menu li a {
   color: #27ABBE;
   font-size: 26px;
   padding: 16px;
   display: block;
+}
+
+aside.sub {
+  left: 289px;
+  padding: 0;
+  width: 100%;
+  max-width: 190px;
+}
+
+aside.sub>div.container {
+  padding-top: 152px;
+}
+
+aside.sidebar.sub nav.side-menu li a {
+  text-align: right;
 }
 
 /*--------------------------------------------
@@ -111,6 +137,8 @@ section.main {
   width: calc(100% - 300px);
   height: 100%;
   position: relative;
+  right: 0;
+  padding-left: 300px;
 }
 
 /*
@@ -374,13 +402,3 @@ div.word-confirmation.popup div.pannel div.word-list li:hover {
 /*
   HIDE UNUSED COMPONENT
 */
-
-div#connected.popup, 
-div#get-device-name.popup,
-div#get-device-pin.popup,
-div#confirm-device-pin.popup,
-div#recovery-setup.popup,
-div#word-confirmation.popup,
-div#word-confirmation1.popup {
-  display: none !important;
-}
