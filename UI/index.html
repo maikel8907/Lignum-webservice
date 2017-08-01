@@ -25,7 +25,7 @@
                 <a href="#">Portfolio</a>
               </li>
               <li>
-                <a href="#">Wallet</a>
+                <a id="wallet" href="#">Wallet</a>
               </li>
               <li>
                 <a href="#">Exchange</a>
@@ -41,13 +41,31 @@
         </div>
       </div>
     </aside>
-    <section class="main">
+    <section id="connect" class="main">
       <div class="connect-nortification">
         <img src="./assets/icons/connect.png" />
         <div class="description">
           <p>Welcome to ICELLET Setup!</p>
           <p>Please connect the</p>
           <p>Device to computer</p>
+        </div>
+      </div>
+    </section>
+    <section id="wallet" class="main">
+      <div id="configuration-done" class="popup">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Your device is READY!!</p>
+            <p class="description">Now you can use your wallet</p>
+            <div class="icon">
+              <img src="./assets/icons/done.png">
+            </div>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
         </div>
       </div>
       <div id="done" class="popup recovery">
@@ -59,137 +77,6 @@
             <p class="description">Please wait a few seconds. While your device is being configurated</p>
             <p class="sub-description">
               Do not Power Off your device
-            </p>
-          </div>
-          <div class="close-btn">
-            x
-          </div>
-        </div>
-      </div>
-      <div id="get-device-pin" class="popup pin">
-        <!-- overlay to make screenblur -->
-        <div class="overlay"></div>
-        <div class="pannel">
-          <div class="container">
-            <p class="description">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>
-            <div class="virtual-keyboard">
-              <ul>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-              </ul>
-              <div class="value-container">
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-              </div>
-            </div>
-          </div>
-          <div class="enter-cancel-btn">
-            <a class="btn enter-btn" href="#">Enter</a>
-            <a class="btn cancel-btn" href="#">Cancel</a>
-          </div>
-          <div class="close-btn">
-            x
-          </div>
-        </div>
-      </div>
-      <div id="confirm-device-pin" class="popup pin">
-        <!-- overlay to make screenblur -->
-        <div class="overlay"></div>
-        <div class="pannel">
-          <div class="container">
-            <p class="description">Please Reenter.</p>
-            <p class="description">The NEW PIN</p>
-            <div class="virtual-keyboard">
-              <ul>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-                <div class="row">
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                  <li class="key">
-                  </li>
-                </div>
-              </ul>
-              <div class="value-container">
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-              </div>
-            </div>
-          </div>
-          <div class="enter-cancel-btn">
-            <a class="btn enter-btn" href="#">Enter</a>
-            <a class="btn cancel-btn" href="#">Cancel</a>
-          </div>
-          <div class="close-btn">
-            x
-          </div>
-        </div>
-      </div>
-      <div id="recovery-setup" class="popup recovery">
-        <!-- overlay to make screenblur -->
-        <div class="overlay"></div>
-        <div class="pannel">
-          <div class="container">
-            <p class="heading">Recovery Seed Setup</p>
-            <p class="description">
-              On your DEVICE. You will now see a unique combination of 24 words,
-              which will allow you to recover your accounts in case you lose your device.
-              The orders of the words is very important. Please write down all these words
-              carefully. Never make a digital copy of your recovery seed and never upload it online.
-              Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses
-              incurred through the client's improper care of sensitive information
-            </p>
-            <div class="icon">
-              <img src="./assets/icons/pencil.png">
-            </div>
-            <p class="sub-description">
-              Writedown the 24 words from the DEVICE into the recovery card.
             </p>
           </div>
           <div class="close-btn">
@@ -250,6 +137,125 @@
           </div>
         </div>
       </div>
+      <div id="recovery-setup" class="popup recovery">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="heading">Recovery Seed Setup</p>
+            <p class="description">
+              On your DEVICE. You will now see a unique combination of 24 words,
+              which will allow you to recover your accounts in case you lose your device.
+              The orders of the words is very important. Please write down all these words
+              carefully. Never make a digital copy of your recovery seed and never upload it online.
+              Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses
+              incurred through the client's improper care of sensitive information
+            </p>
+            <div class="icon">
+              <img src="./assets/icons/pencil.png">
+            </div>
+            <p class="sub-description">
+              Writedown the 24 words from the DEVICE into the recovery card.
+            </p>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="confirm-device-pin" class="popup pin">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="description">Please Reenter.</p>
+            <p class="description">The NEW PIN</p>
+            <div class="virtual-keyboard">
+              <ul>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+              </ul>
+              <div class="value-container">
+              </div>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
+      <div id="get-device-pin" class="popup pin">
+        <!-- overlay to make screenblur -->
+        <div class="overlay"></div>
+        <div class="pannel">
+          <div class="container">
+            <p class="description">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>
+            <div class="virtual-keyboard">
+              <ul>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+                <div class="row">
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                  <li class="key">
+                  </li>
+                </div>
+              </ul>
+              <div class="value-container">
+              </div>
+            </div>
+          </div>
+          <div class="enter-cancel-btn">
+            <a class="btn enter-btn" href="#">Enter</a>
+            <a class="btn cancel-btn" href="#">Cancel</a>
+          </div>
+          <div class="close-btn">
+            x
+          </div>
+        </div>
+      </div>
       <div id="get-device-name" class="popup">
         <!-- overlay to make screenblur -->
         <div class="overlay"></div>
@@ -291,47 +297,9 @@
   </div>
 </body>
 <script
-  src="http://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script type="text/javascript">
-  window.onload = function() {
-    var connected = document.querySelector('div#connected');
-    var getDeviceName = document.querySelector('div#get-device-name');
-    var confirmDevice = document.querySelector('div#confirm-device-pin');
-    var recoverySetup = document.querySelector('div#recovery-setup');
-    var wordConfirmation = document.querySelector('div#word-confirmation');
-    var wordConfirmation1 = document.querySelector('div#word-confirmation1');
-    var configuratedConfirmation = document.querySelector('div#configurated-confirmation');
-
-    getDeviceName.querySelector('a.btn.enter-btn').addEventListener('click', function() {
-      getDeviceName.style.display = 'none';
-    });
-
-    getDeviceName.querySelector('a.btn.cancel-btn').addEventListener('click', function() {
-      getDeviceName.style.display = 'none';
-    });
-
-    setTimeout(function() {
-      connected.style.display = 'none';
-    }, 2000);
-
-
-    $(wordConfirmation).find('a.btn').click(function() {
-      wordConfirmation.style.display = 'none';
-    });
-
-    $(wordConfirmation1).find('a.btn').click(function() {
-      wordConfirmation1.style.display = 'none';
-      setTimeout(function() {
-        recoverySetup.style.display = 'none';
-      }, 2000);
-    });
-
-    $(confirmDevice).find('a.btn').click(function() {
-      wordConfirmation.style.display = 'none';
-    });    
-    
-  }
+src="http://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="./assets/js/index.js">
 </script>
 </html>

@@ -150,7 +150,6 @@ div.connect-nortification {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
 }
 
 div.connect-nortification div.description {
@@ -298,7 +297,8 @@ div.word-confirmation.popup div.pannel {
   CONNECTED
 */
 
-div.connected.popup div.pannel div.icon {
+div#connected.popup div.pannel div.icon,
+div#configuration-done.popup div.pannel div.icon {
   margin-top: 167px;
 }
 
@@ -398,7 +398,3 @@ div.word-confirmation.popup div.pannel div.word-list li:hover {
 /*-------------------------------------------
 // END OF MAIN SECTION
 -------------------------------------------*/
-
-/*
-  HIDE UNUSED COMPONENT
-*/

@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\n  max-width: 1024px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  margin: 0 auto;\n  padding-top: 50px;\n}\n\n.main-content {\n  width: 75%;\n}", ""]);
+exports.push([module.i, "/*\n  IMPORT FONTS\n*/\n\n@font-face {\n  font-family: avenir;\n  src: url(" + __webpack_require__("../../../../../src/assets/fonts/avenir.otf") + ");\n}\n\n@font-face {\n  font-family: lato;\n  src: url(" + __webpack_require__("../../../../../src/assets/fonts/Lato.ttf") + ");\n}\n\n/*\n  GLOBAL CSS\n*/\n\nbody {\n  font-family: avenir;\n  margin: 0;\n  padding: 0;\n}\n\nbody>div.container {\n  height: 100%;\n  height: 919px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-line-pack: start;\n      align-content: flex-start;\n  background: radial-gradient(circle, #114B5F, #093442);\n}\n\nul {\n  padding-left: 0;\n}\n\np {\n  margin: 0;\n}\n\na {\n  text-decoration: none;\n}\n\n/*--------------------------------------------\n//  SIDEBAR\n--------------------------------------------*/\n\naside.sidebar {\n  padding: 0 42px;\n  text-align: center;\n  max-width: 300px;\n  height: 100%;\n  box-sizing: border-box;\n  border-right: 3px solid #114B5F;\n  position: fixed;\n  z-index: 10;\n}\n\naside.sidebar>div.container {\n  height: 100%;\n}\n\naside.sidebar li {\n  list-style: none;\n}\n\naside.sidebar a {\n  transition: color 0.5s;\n}\n\naside.sidebar a:hover {\n  color: #fa9c00 !important;\n  background: #114b5f;\n}\n\naside.main>div.container div.top-container {\n  padding-top: 40px;\n}\n\naside.main>div.container div.bottom-container {\n  height: calc(100% - 332px);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\naside.main div.logo img {\n  width: 202px;\n  height: 164px;\n  -webkit-filter: #FFFFFF;\n  filter: #FFFFFF;\n}\n\naside.main div.balance {\n  padding-top: 60px;\n  font-size: 26px;\n  color: #E0F2F6;\n}\n\naside.sidebar nav.side-menu li a {\n  color: #27ABBE;\n  font-size: 26px;\n  padding: 16px;\n  display: block;\n}\n\naside.sub {\n  left: 289px;\n  padding: 0;\n  width: 100%;\n  max-width: 190px;\n}\n\naside.sub>div.container {\n  padding-top: 152px;\n}\n\naside.sidebar.sub nav.side-menu li a {\n  text-align: right;\n}\n\n/*--------------------------------------------\n//  END OF SIDEBAR\n--------------------------------------------*/\n\n/*-------------------------------------------\n  MAIN SECTION(WHERE USER INTERACT WITH)\n-------------------------------------------*/\n\nsection.main {\n  width: calc(100% - 300px);\n  height: 100%;\n  position: relative;\n  right: 0;\n  padding-left: 300px;\n}\n\n/*\n  WELCOME NORTIFICATION\n*/\n\ndiv.connect-nortification {\n  text-align: center;\n  position: absolute;\n  top: 50%; left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\ndiv.connect-nortification div.description {\n  margin-top: 90px;\n}\n\ndiv.connect-nortification p {\n  font-size: 22px;\n  color: #E0F2F6;\n}\n\n/*\n  POPUP COMPONENT\n*/\n\ndiv.popup {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  left: 0;\n}\n\ndiv.popup div.overlay {\n  width: 100%;\n  height: 100%; \n  background: #04151B;\n  opacity: 0.3;\n}\n\ndiv.popup div.pannel {\n  font-family: lato;\n  width: 100%;\n  max-width: 875px;\n  height: 753px;\n  padding-top: 114px; padding-bottom: 80px;\n  position: fixed;\n  top: 50%; left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  background: radial-gradient(circle, #114B5F, #093442);\n  border-radius: 10px;\n  text-align: center;\n  border: 4px solid #028394;\n}\n\ndiv.popup div.pannel>div.container {\n  max-width: 568px;\n  margin: 0 auto;\n}\n\ndiv.popup div.pannel p.heading {\n  font-size: 26px;\n  color: #E0F2F6;\n  padding-bottom: 25px;\n}\n\ndiv.popup div.pannel p.description {\n  font-size: 20px;\n  color: #E0F2F6;\n  padding-bottom: 10px;\n  line-height: 30px;\n  text-align: center;\n}\n\ndiv.popup div.pannel p.sub-description {\n  position: absolute;\n  font-size: 18px;\n  color: #E0F2F6;\n  padding-bottom: 10px;\n  line-height: 30px;\n  text-align: center;\n  width: 100%;\n  max-width: 250px;\n  margin: 0 auto;\n  bottom: 50px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\n\ndiv.popup div.pannel div.close-btn {\n  font-size: 32px;\n  color: #028394;\n  position: absolute;\n  top: 5px; right: 15px;\n  cursor: pointer;\n}\n\ndiv.popup div.pannel div.input {\n  margin-top: 168px;\n}\n\ndiv.popup div.pannel div.input input {\n  padding: 12px;\n  font-size: 22px;\n  width: 100%;\n  text-align: center;\n  color: #1E4D59;\n  border: 0;\n  border-radius: 5px;\n  background: #E0F2F6;\n}\n\ndiv.popup div.pannel div.enter-cancel-btn {\n  position: absolute;\n  bottom: 80px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\n\ndiv.popup div.pannel div.enter-cancel-btn a {\n  text-decoration: none;\n  color: #27ABBE;\n  padding: 0 27px;\n  font-size: 25px;\n  font-weight: bold;\n}\n\n/*\n  UNIQUE STYLE FOR SPECIFIC POPUP\n*/\n\n/*\n  SMALLER CONTAINER\n*/\ndiv.pin.popup div.pannel div.container,\ndiv.recovery.popup div.pannel div.container,\ndiv.word-confirmation.popup div.pannel div.container {\n  max-width: 374px;\n}\n\n/*\n  SMALLER PADDING FOR HEADING\n*/\ndiv.recovery.popup div.pannel,\ndiv.word-confirmation.popup div.pannel {\n  padding-top: 60px;\n}\n\n/*\n  CONNECTED\n*/\n\ndiv#connected.popup div.pannel div.icon,\ndiv#configuration-done.popup div.pannel div.icon {\n  margin-top: 167px;\n}\n\n/*\n  VIRTUAL KEYBOARD\n*/\ndiv.pin.popup div.pannel div.virtual-keyboard li.key {\n  list-style: none;\n  height: 80px;\n  width: 80px;\n  border: 5px solid #27ABBE;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  transition: background 0.5s;  \n}\n\ndiv.pin.popup div.pannel div.virtual-keyboard ul>div.row {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\ndiv.pin.popup div.pannel div.virtual-keyboard li.key:after {\n  content: \"\";\n  height: 22px;\n  width: 22px;\n  display: block;\n  background: #E0F2F6;\n  border-radius: 50px;\n}\n\ndiv.pin.popup div.pannel div.virtual-keyboard div.value-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding-top: 20px;\n}\n\ndiv.pin.popup div.pannel div.virtual-keyboard div.value-container span.item {\n  height: 15px;\n  width: 15px;\n  background: #E0F2F6;\n  display: block;\n  border-radius: 50%;\n  margin: 0 8px;\n}\n\n/*\n  HOVER STYLE FOR VIRTUAL KEYBOARD\n*/\n\ndiv.pin.popup div.pannel div.virtual-keyboard li.key:hover {\n  background: #E0F2F6;\n  border: 5px solid #E0F2F6;\n  cursor: pointer;\n}\n\ndiv.pin.popup div.pannel div.virtual-keyboard li.key:hover:after {\n  background: #27ABBE;\n}\n\n/*\n  RECOVERY SETUP POPUP\n*/\n\ndiv#recovery-setup.popup div.pannel div.icon {\n  padding-top: 60px;\n  margin: 50px 0px;\n  padding: 0;\n}\n\n/*\n  WORD CONFIRMATION\n*/\n\ndiv.word-confirmation.popup div.pannel div.word-list li {\n  list-style: none;\n  font-size: 22px;\n  color: #E0F2F6;\n  padding: 15px 136px;\n  background: #028394;\n  margin: 10px 0;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.5s;\n}\n\n/*\n  HOVER FOR WORD CONFIRMATION LIST\n*/\n\ndiv.word-confirmation.popup div.pannel div.word-list li:hover {\n  background: #F7B32B;\n}\n\n/*-------------------------------------------\n// END OF MAIN SECTION\n-------------------------------------------*/", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-loading *ngIf=\"!isLoaded\"></app-loading>\n<app-header></app-header>\n<div class=\"container\">\n  <app-sidebar></app-sidebar>\n  <div class=\"main-content\">\n    <router-outlet></router-outlet>\n  </div>\n</div>"
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>index</title>\n  <meta charset=\"utf-8\" />\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"./assets/scss/style.css\">\n</head>\n<body>\n  <div class=\"container\">\n    <aside class=\"sidebar main\">\n      <div class=\"container\">\n        <div class=\"top-container\">\n          <div class=\"logo\">\n            <img src=\"./assets/images/logo.png\" />\n          </div>\n          <div class=\"balance\">\n            <p>$0.00 USD</p>\n            <p>0.00 BTC</p>\n          </div>\n        </div>\n        <div class=\"bottom-container\">\n          <nav class=\"side-menu\">\n            <ul>\n              <li>\n                <a href=\"#\">Portfolio</a>\n              </li>\n              <li>\n                <a id=\"wallet\" href=\"#\">Wallet</a>\n              </li>\n              <li>\n                <a href=\"#\">Exchange</a>\n              </li>\n              <li>\n                <a href=\"#\">Settings</a>\n              </li>\n              <li>\n                <a href=\"#\">Helps</a>\n              </li>\n            </ul>\n          </nav>\n        </div>\n      </div>\n    </aside>\n    <section id=\"connect\" class=\"main\">\n      <div class=\"connect-nortification\">\n        <img src=\"./assets/icons/connect.png\" />\n        <div class=\"description\">\n          <p>Welcome to ICELLET Setup!</p>\n          <p>Please connect the</p>\n          <p>Device to computer</p>\n        </div>\n      </div>\n    </section>\n    <section id=\"wallet\" class=\"main\">\n      <div id=\"configuration-done\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Your device is READY!!</p>\n            <p class=\"description\">Now you can use your wallet</p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/done.png\">\n            </div>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"done\" class=\"popup recovery\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Confirmation</p>\n            <p class=\"description\">Please wait a few seconds. While your device is being configurated</p>\n            <p class=\"sub-description\">\n              Do not Power Off your device\n            </p>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"word-confirmation\" class=\"popup word-confirmation\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Recovery Seed Setup</p>\n            <p class=\"description\">In the list below, select the word <b>number 12</b> of the recovery sheet</p>\n            <div class=\"word-list\">\n              <ul>\n                <li>Computer</li>\n                <li>Classic</li>\n                <li>Screen</li>\n                <li>Purple</li>\n                <li>Earth</li>\n                <li>Leopard</li>\n              </ul>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Next</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"word-confirmation1\" class=\"popup word-confirmation\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Confirmation</p>\n            <p class=\"description\">In the list below, select the word <b>number 3</b> of the recovery sheet</p>\n            <div class=\"word-list\">\n              <ul>\n                <li>Computer</li>\n                <li>Classic</li>\n                <li>Screen</li>\n                <li>Purple</li>\n                <li>Earth</li>\n                <li>Leopard</li>\n              </ul>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Back</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Continue</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"recovery-setup\" class=\"popup recovery\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Recovery Seed Setup</p>\n            <p class=\"description\">\n              On your DEVICE. You will now see a unique combination of 24 words,\n              which will allow you to recover your accounts in case you lose your device.\n              The orders of the words is very important. Please write down all these words\n              carefully. Never make a digital copy of your recovery seed and never upload it online.\n              Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses\n              incurred through the client's improper care of sensitive information\n            </p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/pencil.png\">\n            </div>\n            <p class=\"sub-description\">\n              Writedown the 24 words from the DEVICE into the recovery card.\n            </p>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"confirm-device-pin\" class=\"popup pin\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"description\">Please Reenter.</p>\n            <p class=\"description\">The NEW PIN</p>\n            <div class=\"virtual-keyboard\">\n              <ul>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n              </ul>\n              <div class=\"value-container\">\n              </div>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"get-device-pin\" class=\"popup pin\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"description\">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>\n            <div class=\"virtual-keyboard\">\n              <ul>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n              </ul>\n              <div class=\"value-container\">\n              </div>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"get-device-name\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Welcome to Icellet Setup!</p>\n            <p class=\"description\">Setting up your device will only take a few minutes.</p>\n            <p class=\"description\">When you're done. You can start using your wallet.</p>\n            <div class=\"input\">\n              <input type=\"text\"  placeholder=\"Please enter your device name!\" />\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"connected\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Device Connected</p>\n            <p class=\"description\">Now you can configure your device</p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/phone.png\">\n            </div>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n    </section>\n  </div>\n</body>\n<script\nsrc=\"http://code.jquery.com/jquery-3.2.1.min.js\"\nintegrity=\"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=\"\ncrossorigin=\"anonymous\"></script>\n<script type=\"text/javascript\" src=\"./assets/js/index.js\">\n</script>\n</html><!DOCTYPE html>\n<html>\n<head>\n  <title>index</title>\n  <meta charset=\"utf-8\" />\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"./assets/scss/style.css\">\n</head>\n<body>\n  <div class=\"container\">\n    <aside class=\"sidebar main\">\n      <div class=\"container\">\n        <div class=\"top-container\">\n          <div class=\"logo\">\n            <img src=\"./assets/images/logo.png\" />\n          </div>\n          <div class=\"balance\">\n            <p>$0.00 USD</p>\n            <p>0.00 BTC</p>\n          </div>\n        </div>\n        <div class=\"bottom-container\">\n          <nav class=\"side-menu\">\n            <ul>\n              <li>\n                <a href=\"#\">Portfolio</a>\n              </li>\n              <li>\n                <a id=\"wallet\" href=\"#\">Wallet</a>\n              </li>\n              <li>\n                <a href=\"#\">Exchange</a>\n              </li>\n              <li>\n                <a href=\"#\">Settings</a>\n              </li>\n              <li>\n                <a href=\"#\">Helps</a>\n              </li>\n            </ul>\n          </nav>\n        </div>\n      </div>\n    </aside>\n    <section id=\"connect\" class=\"main\">\n      <div class=\"connect-nortification\">\n        <img src=\"./assets/icons/connect.png\" />\n        <div class=\"description\">\n          <p>Welcome to ICELLET Setup!</p>\n          <p>Please connect the</p>\n          <p>Device to computer</p>\n        </div>\n      </div>\n    </section>\n    <section id=\"wallet\" class=\"main\">\n      <div id=\"configuration-done\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Your device is READY!!</p>\n            <p class=\"description\">Now you can use your wallet</p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/done.png\">\n            </div>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"done\" class=\"popup recovery\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Confirmation</p>\n            <p class=\"description\">Please wait a few seconds. While your device is being configurated</p>\n            <p class=\"sub-description\">\n              Do not Power Off your device\n            </p>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"word-confirmation\" class=\"popup word-confirmation\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Recovery Seed Setup</p>\n            <p class=\"description\">In the list below, select the word <b>number 12</b> of the recovery sheet</p>\n            <div class=\"word-list\">\n              <ul>\n                <li>Computer</li>\n                <li>Classic</li>\n                <li>Screen</li>\n                <li>Purple</li>\n                <li>Earth</li>\n                <li>Leopard</li>\n              </ul>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Next</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"word-confirmation1\" class=\"popup word-confirmation\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Confirmation</p>\n            <p class=\"description\">In the list below, select the word <b>number 3</b> of the recovery sheet</p>\n            <div class=\"word-list\">\n              <ul>\n                <li>Computer</li>\n                <li>Classic</li>\n                <li>Screen</li>\n                <li>Purple</li>\n                <li>Earth</li>\n                <li>Leopard</li>\n              </ul>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Back</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Continue</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"recovery-setup\" class=\"popup recovery\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Recovery Seed Setup</p>\n            <p class=\"description\">\n              On your DEVICE. You will now see a unique combination of 24 words,\n              which will allow you to recover your accounts in case you lose your device.\n              The orders of the words is very important. Please write down all these words\n              carefully. Never make a digital copy of your recovery seed and never upload it online.\n              Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses\n              incurred through the client's improper care of sensitive information\n            </p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/pencil.png\">\n            </div>\n            <p class=\"sub-description\">\n              Writedown the 24 words from the DEVICE into the recovery card.\n            </p>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"confirm-device-pin\" class=\"popup pin\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"description\">Please Reenter.</p>\n            <p class=\"description\">The NEW PIN</p>\n            <div class=\"virtual-keyboard\">\n              <ul>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n              </ul>\n              <div class=\"value-container\">\n              </div>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"get-device-pin\" class=\"popup pin\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"description\">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>\n            <div class=\"virtual-keyboard\">\n              <ul>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n                <div class=\"row\">\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                  <li class=\"key\">\n                  </li>\n                </div>\n              </ul>\n              <div class=\"value-container\">\n              </div>\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"get-device-name\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Welcome to Icellet Setup!</p>\n            <p class=\"description\">Setting up your device will only take a few minutes.</p>\n            <p class=\"description\">When you're done. You can start using your wallet.</p>\n            <div class=\"input\">\n              <input type=\"text\"  placeholder=\"Please enter your device name!\" />\n            </div>\n          </div>\n          <div class=\"enter-cancel-btn\">\n            <a class=\"btn enter-btn\" href=\"#\">Enter</a>\n            <a class=\"btn cancel-btn\" href=\"#\">Cancel</a>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n      <div id=\"connected\" class=\"popup\">\n        <!-- overlay to make screenblur -->\n        <div class=\"overlay\"></div>\n        <div class=\"pannel\">\n          <div class=\"container\">\n            <p class=\"heading\">Device Connected</p>\n            <p class=\"description\">Now you can configure your device</p>\n            <div class=\"icon\">\n              <img src=\"./assets/icons/phone.png\">\n            </div>\n          </div>\n          <div class=\"close-btn\">\n            x\n          </div>\n        </div>\n      </div>\n    </section>\n  </div>\n</body>\n<script\nsrc=\"http://code.jquery.com/jquery-3.2.1.min.js\"\nintegrity=\"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=\"\ncrossorigin=\"anonymous\"></script>\n<script type=\"text/javascript\">\nvar walletSection = $('section#wallet').css({ display: 'none' });\n  var connectSection = $('section#connect');\n  var wordSection = $('.popup.word-confirmation')\n  var pinSection = $('.pin.popup');\n  var recoverySection = $('#recovery-setup');\n  var doneSection = $('.popup#done');\n\n  $('a#wallet').click(function() {\n    walletSection.css({ display: 'block' });\n    connectSection.css({ display: 'none' });\n\n    setTimeout(function() {\n      walletSection.find('div#connected').css({ display: 'none' });\n    }, 1000);\n\n    walletSection.find('.btn').click(function() {\n      $(this).parents('.popup').css({ display: 'none' });\n    });\n  });\n\n  walletSection.find('.close-btn').click(function() {\n    walletSection.css({ display: 'none' });\n  });\n\n  wordSection.find('.word-list li').click(function() {\n    $(this).parents('.popup').css({ display: 'none' });\n  });\n\n  $('#word-confirmation').find('.word-list li').click(function() {\n    setTimeout(function() {\n      doneSection.css({ display: 'none' });\n    }, 1000);\n  });\n\n  pinSection.find('.key').click(function() {\n    $(this).parents('.virtual-keyboard').find('.value-container').append('<span class=\"item\"></span>');\n  });\n\n  $('.popup#confirm-device-pin').find('.btn').click(function() {\n    recoverySection.css({ display: 'none' });\n    setTimeout(function() {\n      recoverySection.css({ display: 'none' });\n    }, 1000);\n  });\n</script>\n</html>"
 
 /***/ }),
 
@@ -53,14 +53,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app';
-        this.isLoaded = false;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.isLoaded = true;
-        }, 3000);
+    AppComponent.prototype.ngAfterViewInit = function () {
     };
     return AppComponent;
 }());
@@ -84,10 +78,6 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__share_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/share/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__share_header_header_component__ = __webpack_require__("../../../../../src/app/share/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__wallet_components_popup_popup_component__ = __webpack_require__("../../../../../src/app/wallet/components/popup/popup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loading_index__ = __webpack_require__("../../../../../src/app/loading/index.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -100,15 +90,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // Component
 
-
-
-
-// Module
-
 var route = [
     {
         path: '',
-        component: __WEBPACK_IMPORTED_MODULE_6__wallet_components_popup_popup_component__["a" /* PopupComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
     }
 ];
 var AppModule = (function () {
@@ -119,14 +104,10 @@ var AppModule = (function () {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__share_sidebar_sidebar_component__["a" /* SidebarComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__share_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__wallet_components_popup_popup_component__["a" /* PopupComponent */]
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_7__loading_index__["a" /* LoadingModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule */].forRoot(route)
         ],
         providers: [],
@@ -138,289 +119,17 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/loading/index.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__loading_component__ = __webpack_require__("../../../../../src/app/loading/loading.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadingModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-// User defined component
-
-var LoadingModule = (function () {
-    function LoadingModule() {
-    }
-    return LoadingModule;
-}());
-LoadingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_1__loading_component__["a" /* LoadingComponent */]
-        ],
-        imports: [],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_1__loading_component__["a" /* LoadingComponent */]
-        ],
-        providers: []
-    })
-], LoadingModule);
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/loading/loading.component.css":
+/***/ "../../../../../src/assets/fonts/Lato.ttf":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "section.loading {\n  width: 100%;\n  height: 100%;\n  background: #bcbdc0;\n}\n\nsection.loading>.loading-container {\n  position: absolute;\n  left: 50%; top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\nsection.loading img {\n  display: block;\n}\n\nsection.loading p {\n  text-align: center;\n  color: #000;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = __webpack_require__.p + "Lato.5b761f2d1e4259ea6ac7.ttf";
 
 /***/ }),
 
-/***/ "../../../../../src/app/loading/loading.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"loading\">\n  <div class=\"loading-container\">\n    <!-- <img src=\"./assets/image/logo.png\" /> -->\n    <p><i class=\"fa fa-cog fa-spin fa-3x fa-fw\"></i></p>\n  </div>  \n</section>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/loading/loading.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoadingComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoadingComponent = (function () {
-    function LoadingComponent(elementRef) {
-        this.isLoaded = false;
-        this.elementRef = elementRef;
-    }
-    LoadingComponent.prototype.ngOnInit = function () { };
-    LoadingComponent.prototype.ngAfterContentInit = function () {
-        var elementRef = this.elementRef;
-        var loadingElement = elementRef.nativeElement.childNodes[0];
-        if (loadingElement) {
-            loadingElement.style.height = window.innerHeight + "px";
-        }
-    };
-    return LoadingComponent;
-}());
-LoadingComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
-        selector: 'app-loading',
-        template: __webpack_require__("../../../../../src/app/loading/loading.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/loading/loading.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ElementRef */]) === "function" && _a || Object])
-], LoadingComponent);
-
-var _a;
-//# sourceMappingURL=loading.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/header/header.component.css":
+/***/ "../../../../../src/assets/fonts/avenir.otf":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "div.header-container {\n  max-width: 1024px;\n  margin: 0 auto;\n  padding-top: 50px;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/header/header.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<header>\n  <div class=\"header-container\">\n    <img src=\"./assets/image/logo.png\" />\n  </div>\n</header>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/header/header.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-    }
-    return HeaderComponent;
-}());
-HeaderComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
-        selector: 'app-header',
-        template: __webpack_require__("../../../../../src/app/share/header/header.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/share/header/header.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], HeaderComponent);
-
-//# sourceMappingURL=header.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/sidebar/sidebar.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "ul {\n  padding: 0;\n  margin-top: 0;\n}\n\nul li {\n  list-style: none;\n}\n\na {\n  text-decoration: none;\n  font-size: 24px;\n  color: #000;\n  padding: 30px 0;\n  display: block;\n}\n\nli.lg-padding a {\n  padding-top: 70px;\n}\n\nli.remove-padding-top a {\n  padding-top: 0;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/sidebar/sidebar.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<ul>\n  <li class=\"remove-padding-top\"><a href=\"#\">Portfolio</a></li>\n  <li><a href=\"#\">Wallet</a></li>\n  <li><a href=\"#\">Exchange</a></li>\n  <li><a href=\"#\">Support</a></li>\n  <li><a href=\"#\">Follow Us</a></li>\n  <li class=\"lg-padding\"><a href=\"#\">Settings</a></li>\n</ul>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/share/sidebar/sidebar.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SidebarComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var SidebarComponent = (function () {
-    function SidebarComponent() {
-    }
-    return SidebarComponent;
-}());
-SidebarComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
-        selector: 'app-sidebar',
-        template: __webpack_require__("../../../../../src/app/share/sidebar/sidebar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/share/sidebar/sidebar.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], SidebarComponent);
-
-//# sourceMappingURL=sidebar.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/wallet/components/popup/popup.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".popup {\n  margin: 0 auto;\n  text-align: center;\n  font-size: 17px;\n  border: 1px solid #000;\n}\n\n.popup p.title {\n  font-size: 30px;\n}\n\n.popup p.input {\n  margin-top: 70px;\n}\n\n.popup input {\n  width: 80%;\n  height: 45px;\n  font-size: 20px;\n  text-align: center;\n}\n\n.popup i {\n  font-size: 140px;\n}\n\n.popup button {\n  box-shadow: none;\n  border: 0;\n  padding: 20px 70px;\n  font-size: 20px;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/wallet/components/popup/popup.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"popup\">\n  <p class=\"title\">\n    Welcome to L Wallet Setup!<br>\n    Setting up your L will take only a few minutes.<br>\n    When you’re done, you can start using your L wallet<br>\n  </p>\n  <p class=\"input\">\n    <input\n      type=\"text\"\n      placeholder=\"type your device name\"\n    >\n  </p>\n  <p class=\"icon\">\n    <i class=\"fa fa-keyboard-o\" aria-hidden=\"true\"></i>\n  </p>\n  <p class=\"button\">\n    <button>Continue</button>\n  </p>\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/wallet/components/popup/popup.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PopupComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var PopupComponent = (function () {
-    function PopupComponent() {
-        this.PopupType = 'FirstTimePopup';
-    }
-    return PopupComponent;
-}());
-PopupComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
-        selector: 'app-popup',
-        template: __webpack_require__("../../../../../src/app/wallet/components/popup/popup.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/wallet/components/popup/popup.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], PopupComponent);
-
-//# sourceMappingURL=popup.component.js.map
+module.exports = __webpack_require__.p + "avenir.f366f04541f0a9270e0a.otf";
 
 /***/ }),
 
