@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var walletSection = $('section#wallet').css({ display: 'none' });
   var connectSection = $('section#connect');
-  var wordSection = $('.popup.word-confirmation')
+  var wordSection = $('.popup.word-confirmation');
   var pinSection = $('.pin.popup');
   var recoverySection = $('#recovery-setup');
   var doneSection = $('.popup#done');

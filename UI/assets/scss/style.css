@@ -22,17 +22,6 @@ body {
   padding: 0;
 }
 
-body>div.container {
-  height: 100%;
-  height: 919px;
-  display: flex;
-  align-content: flex-start;
-  background: -webkit-radial-gradient(circle, #114B5F, #093442);
-  background: -o-radial-gradient(circle, #114B5F, #093442);
-  background: -moz-radial-gradient(circle, #114B5F, #093442);
-  background: radial-gradient(circle, #114B5F, #093442);
-}
-
 ul {
   padding-left: 0;
 }
@@ -43,6 +32,17 @@ p {
 
 a {
   text-decoration: none;
+}
+
+body>div.container {
+  height: 100%;
+  height: 919px;
+  display: flex;
+  align-content: flex-start;
+  background: -webkit-radial-gradient(circle, #114B5F, #093442);
+  background: -o-radial-gradient(circle, #114B5F, #093442);
+  background: -moz-radial-gradient(circle, #114B5F, #093442);
+  background: radial-gradient(circle, #114B5F, #093442);
 }
 
 /*--------------------------------------------

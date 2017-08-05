@@ -1,36 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
+// Redux store
+import { store } from './core/store';
 
 // Component
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './share/sidebar/sidebar.component';
-import { HeaderComponent } from './share/header/header.component';
-import { PopupComponent } from './wallet/components/popup/popup.component';
+import { SidebarComponent } from './shared/component/sidebar/sidebar.component';
+import { WalletComponent } from './core/component/wallet/wallet.component';
 
-// Module
-import { LoadingModule } from './loading/index';
+// Service
+import { DeviceService } from './shared/service/device.service';
 
+// Modules
 const route = [
   {
     path: '',
-    component: PopupComponent
+    component: WalletComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    HeaderComponent,
-    PopupComponent
+    WalletComponent
   ],
   imports: [
     BrowserModule,
-    LoadingModule,
-    RouterModule.forRoot(route)
+    HttpModule,
+    FormsModule,
+    RouterModule.forRoot(route),
+    StoreModule.forRoot(store)
   ],
-  providers: [],
+  providers: [DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
