@@ -45,7 +45,11 @@
       </div>
     </div>
   </div>
-  <div id="word-confirmation" class="popup word-confirmation">
+  <div
+    *ngIf="currentStep == 6"
+    id="word-confirmation" 
+    class="popup word-confirmation"
+  >
     <!-- overlay to make screenblur -->
     <div class="overlay"></div>
     <div class="pannel">
@@ -54,7 +58,7 @@
         <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
         <div class="word-list">
           <li
-              *ngFor="let word of recoveryWordList.slice(recoveryWordIndex, recoveryWordIndex + 6)"
+              *ngFor="let word of recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
               (click)="onRecoveryWordClick(word)"
             >
               {{ word }}
@@ -83,7 +87,7 @@
         <div class="word-list">
           <ul>
             <li
-              *ngFor="let word of recoveryWordList.slice(recoveryWordIndex, recoveryWordIndex + 6)"
+              *ngFor="let word of recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
               (click)="onRecoveryWordClick(word)"
             >
               {{ word }}

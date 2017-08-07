@@ -24,6 +24,7 @@ export class WalletComponent implements  AfterViewInit {
   private reEnterDevicePin = '';
   private reEnterWalletPin = '';
   private recoveryWordIndex = 0;
+  private recoveryWordStartIndex = 0;
 
   constructor(
     private store: Store<any>,
@@ -158,7 +159,12 @@ export class WalletComponent implements  AfterViewInit {
 
   getRecoveryWordIndex() {
     this.recoveryWordIndex = Math.floor(Math.random() * (this.recoveryWordList.length - 7));
-    console.log(this.recoveryWordList);
-    console.log(this.recoveryWordIndex);
+
+    if (this.recoveryWordIndex <= 6) {
+      this.recoveryWordStartIndex = 0;
+    } else {
+      this.recoveryWordStartIndex
+      = Math.floor(Math.random() * (this.recoveryWordIndex - (this.recoveryWordIndex - 6) + 1)) + (this.recoveryWordIndex - 6);
+    }
   }
 }

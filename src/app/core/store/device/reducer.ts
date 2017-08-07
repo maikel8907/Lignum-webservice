@@ -30,6 +30,9 @@ export function deviceReducer(state: Object = initialState, action: DeviceAction
   const _state: any = { ...state };
 
   switch (action.type) {
+    case deviceAction.SET_DEVICE_DATA:
+    return _state;
+
     case deviceAction.SET_CONNECT_STATUS:
       _state.isConnect = action.payload;
     return _state;
