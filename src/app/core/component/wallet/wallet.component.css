@@ -158,6 +158,7 @@ div.word-confirmation.popup div.pannel {
 div#connected.popup div.pannel div.icon,
 div#configuration-done.popup div.pannel div.icon {
   margin-top: 167px;
+  margin-left: auto; margin-right: auto;
 }
 
 /*
@@ -244,6 +245,47 @@ div.word-confirmation.popup div.pannel div.word-list li {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.5s;
+}
+
+/*
+  FINISH NORTIFICATION
+*/
+
+@-webkit-keyframes spin {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+div#configuration-done.popup .icon.loading-circle {
+    width: 152px;
+    height: 152px;
+    background: #0a3746;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    animation: spin 2s infinite;
+}
+
+div#configuration-done.popup .icon.loading-circle:after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #114a5e;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div#configuration-done.popup .icon.loading-circle:before {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    content: '';
+    display: block;
+    left: 0;
+    background: #27abbe
 }
 
 /*

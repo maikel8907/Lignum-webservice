@@ -31,6 +31,19 @@ export function deviceReducer(state: Object = initialState, action: DeviceAction
 
   switch (action.type) {
     case deviceAction.SET_DEVICE_DATA:
+      const {
+        deviceName,
+        devicePin,
+        walletPin,
+        currentStep,
+        recoveryWordList
+      } = action.payload;
+
+      _state.deviceName = deviceName;
+      _state.devicePin = devicePin;
+      _state.walletPin = walletPin;
+      _state.currentStep = currentStep;
+      _state.recoveryWordList = recoveryWordList;
     return _state;
 
     case deviceAction.SET_CONNECT_STATUS:

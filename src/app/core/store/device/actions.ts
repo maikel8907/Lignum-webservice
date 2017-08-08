@@ -11,6 +11,7 @@ export const setConnectStatus = (payload) => ({
   payload
 });
 
-export const getDeviceData = () => ({
-  type: SET_DEVICE_DATA
+export const setDeviceData = (payload) => ({
+  type: SET_DEVICE_DATA,
+  payload
 });

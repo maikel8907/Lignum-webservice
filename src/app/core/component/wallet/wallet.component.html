@@ -11,9 +11,13 @@
 </div>
 
 <section
-  *ngIf="isConnect"
+  *ngIf="deviceData.isConnect"
 >
-  <div id="configuration-done" class="popup">
+  <div
+    *ngIf="deviceData.currentStep == 9"
+    id="configuration-done"
+    class="popup"
+  >
     <!-- overlay to make screenblur -->
     <div class="overlay"></div>
     <div class="pannel">
@@ -24,12 +28,89 @@
           <img src="./assets/icons/done.png">
         </div>
       </div>
-      <div class="close-btn">
+      <div 
+        (click)="onCloseBtnClick('done')"
+        class="close-btn"
+      >
         x
       </div>
     </div>
   </div>
-  <div id="done" class="popup recovery">
+  <div
+    *ngIf="deviceData.currentStep == 8"
+    id="get-device-pin"
+    class="popup pin"
+  >
+    <!-- overlay to make screenblur -->
+    <div class="overlay"></div>
+    <div class="pannel">
+      <div class="container">
+        <p class="description">Enter wallet pin</p>
+        <div class="virtual-keyboard">
+          <ul>
+            <div class="row">
+              <li 
+                *ngFor="let key of keyMap.slice(0, 3)"
+                class="key"
+                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+              >
+              </li>
+            </div>
+            <div class="row">
+              <li 
+                *ngFor="let key of keyMap.slice(3, 6)"
+                class="key"
+                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+              >
+              </li>
+            </div>
+            <div class="row">
+              <li 
+                *ngFor="let key of keyMap.slice(6, 10)"
+                class="key"
+                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+              >
+              </li>
+            </div>
+          </ul>
+          <div class="value-container">
+            <span 
+              *ngFor="let pinItem of deviceData.walletPin.split('')"
+              class="item"
+            >
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="enter-cancel-btn">
+        <a
+          (click)="onEnterBtnClick('walletPin')"
+          class="btn enter-btn"
+          href="#"
+        >
+          Enter
+        </a>
+        <a
+          (click)="onCancelBtnClick('walletPin')"
+          class="btn cancel-btn"
+          href="#"
+        >
+          Cancel
+        </a>
+      </div>
+      <div
+        (click)="onCloseBtnClick('walletPin')"
+        class="close-btn"
+      >
+        x
+      </div>
+    </div>
+  </div>
+  <div 
+    *ngIf="deviceData.currentStep == 7"
+    id="configuration-done"
+    class="popup recovery"
+  >
     <!-- overlay to make screenblur -->
     <div class="overlay"></div>
     <div class="pannel">
@@ -39,6 +120,7 @@
         <p class="sub-description">
           Do not Power Off your device
         </p>
+        <div class="icon loading-circle"></div>
       </div>
       <div class="close-btn">
         x
@@ -46,7 +128,7 @@
     </div>
   </div>
   <div
-    *ngIf="currentStep == 6"
+    *ngIf="deviceData.currentStep == 6"
     id="word-confirmation" 
     class="popup word-confirmation"
   >
@@ -58,23 +140,31 @@
         <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
         <div class="word-list">
           <li
-              *ngFor="let word of recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-              (click)="onRecoveryWordClick(word)"
+              *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
+              (click)="onRecoveryWordClick(word, 'reRecoveryStep')"
             >
               {{ word }}
             </li>
         </div>
       </div>
       <div class="enter-cancel-btn">
-        <a class="btn enter-btn" href="#">Next</a>
+        <a 
+          class="btn enter-btn"
+          href="#"
+        >
+          Next
+        </a>
       </div>
-      <div class="close-btn">
+      <div
+        (click)="onCloseBtnClick()"
+        class="close-btn"
+      >
         x
       </div>
     </div>
   </div>
   <div
-    *ngIf="currentStep == 5"
+    *ngIf="deviceData.currentStep == 5"
     id="word-confirmation1"
     class="popup word-confirmation"
   >
@@ -87,8 +177,8 @@
         <div class="word-list">
           <ul>
             <li
-              *ngFor="let word of recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-              (click)="onRecoveryWordClick(word)"
+              *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
+              (click)="onRecoveryWordClick(word, 'recoveryStep')"
             >
               {{ word }}
             </li>
@@ -97,14 +187,14 @@
       </div>
       <div class="enter-cancel-btn">
         <a
-          (click)="onCancelClick()"
+          (click)="onCloseBtnClick()"
           class="btn enter-btn"
           href="#"
         >
           Back
         </a>
         <a
-          (click)="onEnterClick('recoveryWord')"
+          (click)="onEnterBtnClick('confirmRecoveryWord2')"
           class="btn cancel-btn"
           href="#"
         >
@@ -112,7 +202,7 @@
         </a>
       </div>
       <div 
-        (click)="onCancelClick()"
+        (click)="onCloseBtnClick()"
         class="close-btn"
       >
         x
@@ -120,7 +210,7 @@
     </div>
   </div>
   <div
-    *ngIf="currentStep == 4"
+    *ngIf="deviceData.currentStep == 4"
     id="recovery-setup"
     class="popup recovery
   ">
@@ -145,7 +235,7 @@
         </p>
       </div>
       <div
-        (click)="onEnterClick('recoveryCard')"
+        (click)="onCloseBtnClick('recoveryCard')"
         class="close-btn"
       >
         x
@@ -153,7 +243,7 @@
     </div>
   </div>
   <div 
-    *ngIf="currentStep == 3"
+    *ngIf="deviceData.currentStep == 3"
     id="confirm-device-pin" 
     class="popup pin"
   >
@@ -169,7 +259,7 @@
               <li 
                 *ngFor="let key of keyMap.slice(0, 3)"
                 class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
               >
               </li>
             </div>
@@ -177,7 +267,7 @@
               <li 
                 *ngFor="let key of keyMap.slice(3, 6)"
                 class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
               >
               </li>
             </div>
@@ -185,14 +275,14 @@
               <li 
                 *ngFor="let key of keyMap.slice(6, 10)"
                 class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
               >
               </li>
             </div>
           </ul>
           <div class="value-container">
             <span 
-              *ngFor="let pinItem of devicePin.split('')"
+              *ngFor="let pinItem of reDevicePin.split('')"
               class="item"
             >
             </span>
@@ -201,14 +291,14 @@
       </div>
       <div class="enter-cancel-btn">
         <a
-          (click)="onEnterClick('reEnterDevicePin')"
+          (click)="onEnterBtnClick('reDevicePin')"
           class="btn enter-btn" 
           href="#"
         >
           Enter
         </a>
         <a 
-          (click)="processToPreviousStep()"
+          (click)="onCancelBtnClick('reDevicePin')"
           class="btn cancel-btn"
           href="#"
         >
@@ -216,7 +306,7 @@
         </a>
       </div>
       <div
-        (click)="processToPreviousStep()"
+        (click)="onCloseBtnClick('reDevicePin')"
         class="close-btn"
       >
         x
@@ -224,7 +314,7 @@
     </div>
   </div>
   <div
-    *ngIf="currentStep == 2"
+    *ngIf="deviceData.currentStep == 2"
     id="get-device-pin"
     class="popup pin"
   >
@@ -262,7 +352,7 @@
           </ul>
           <div class="value-container">
             <span 
-              *ngFor="let pinItem of devicePin.split('')"
+              *ngFor="let pinItem of deviceData.devicePin.split('')"
               class="item"
             >
             </span>
@@ -271,14 +361,14 @@
       </div>
       <div class="enter-cancel-btn">
         <a
-          (click)="onEnterClick('devicePin')"
+          (click)="onEnterBtnClick('devicePin')"
           class="btn enter-btn"
           href="#"
         >
           Enter
         </a>
         <a
-          (click)="processToPreviousStep()"
+          (click)="onCancelBtnClick('devicePin')"
           class="btn cancel-btn"
           href="#"
         >
@@ -286,7 +376,7 @@
         </a>
       </div>
       <div
-        (click)="processToPreviousStep()"
+        (click)="onCloseBtnClick('devicePin')"
         class="close-btn"
       >
         x
@@ -294,7 +384,7 @@
     </div>
   </div>
   <div
-    *ngIf="currentStep == 1"
+    *ngIf="deviceData.currentStep == 1"
     id="get-device-name" 
     class="popup"
   >
@@ -307,7 +397,7 @@
         <p class="description">When you're done. You can start using your wallet.</p>
         <div class="input">
           <input
-            [(ngModel)]="deviceName"
+            [(ngModel)]="deviceData.deviceName"
             type="text"
             placeholder="Please enter your device name!"
           />
@@ -315,14 +405,14 @@
       </div>
       <div class="enter-cancel-btn">
         <a
-          (click)="onEnterClick('deivceName')"
+          (click)="onEnterBtnClick('setDeviceName')"
           class="btn enter-btn"
           href="#"
         >
           Enter
         </a>
         <a
-          (click)="processToPreviousStep()"
+          (click)="onCancelBtnClick('setDeviceName')"
           class="btn cancel-btn"
           href="#"
         >
@@ -330,7 +420,7 @@
         </a>
       </div>
       <div 
-        (click)="processToPreviousStep()"
+        (click)="onCloseBtnClick('setDeviceName')"
         class="close-btn"
       >
         x
@@ -338,7 +428,7 @@
     </div>
   </div>
   <div 
-    *ngIf="currentStep == 0"
+    *ngIf="deviceData.currentStep == 0"
     id="connected"
     class="popup"
   >
@@ -353,7 +443,7 @@
         </div>
       </div>
       <div 
-        (click)="processToNextStep()"
+        (click)="onCloseBtnClick('deviceConnected')"
         class="close-btn"
       >
         x
