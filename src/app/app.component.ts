@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 // Action to dispatch
 import * as deviceAction from './core/store/device/actions';
@@ -17,7 +18,8 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private store: Store<any>,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private router: Router
   ) {
     store.subscribe(({ device }) => {
       this.isConnect = device.isConnect;

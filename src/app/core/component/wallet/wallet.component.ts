@@ -5,7 +5,8 @@ import { Store } from '@ngrx/store';
 import * as deviceAction from '../../store/device/actions';
 
 // Service
-import { DeviceService } from '../../../shared/service/device.service'
+import { DeviceService } from '../../../shared/service/device.service';
+
 
 @Component({
   moduleId: module.id,

@@ -1,453 +1,447 @@
-<div 
-  *ngIf="!isConnect"
-  class="connect-nortification"
->
-  <img src="./assets/icons/connect.png" />
-  <div class="description">
-    <p>Welcome to ICELLET Setup!</p>
-    <p>Please connect the</p>
-    <p>Device to computer</p>
-  </div>
-</div>
-
 <section
-  *ngIf="deviceData.isConnect"
+  id="connect" 
+  class="main"
 >
-  <div
-    *ngIf="deviceData.currentStep == 9"
-    id="configuration-done"
-    class="popup"
+  <div 
+    *ngIf="!isConnect"
+    class="connect-nortification"
   >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Your device is READY!!</p>
-        <p class="description">Now you can use your wallet</p>
-        <div class="icon">
-          <img src="./assets/icons/done.png">
-        </div>
-      </div>
-      <div 
-        (click)="onCloseBtnClick('done')"
-        class="close-btn"
-      >
-        x
-      </div>
+    <img src="./assets/icons/connect.png" />
+    <div class="description">
+      <p>Welcome to ICELLET Setup!</p>
+      <p>Please connect the</p>
+      <p>Device to computer</p>
     </div>
   </div>
-  <div
-    *ngIf="deviceData.currentStep == 8"
-    id="get-device-pin"
-    class="popup pin"
+
+  <section
+    *ngIf="deviceData.isConnect"
   >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="description">Enter wallet pin</p>
-        <div class="virtual-keyboard">
-          <ul>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(0, 3)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
-              >
-              </li>
-            </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(3, 6)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
-              >
-              </li>
-            </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(6, 10)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'walletPin')"
-              >
-              </li>
-            </div>
-          </ul>
-          <div class="value-container">
-            <span 
-              *ngFor="let pinItem of deviceData.walletPin.split('')"
-              class="item"
-            >
-            </span>
+    <div
+      *ngIf="deviceData.currentStep == 9"
+      id="configuration-done"
+      class="popup"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Your device is READY!!</p>
+          <p class="description">Now you can use your wallet</p>
+          <div class="icon">
+            <img src="./assets/icons/done.png">
           </div>
         </div>
-      </div>
-      <div class="enter-cancel-btn">
-        <a
-          (click)="onEnterBtnClick('walletPin')"
-          class="btn enter-btn"
-          href="#"
+        <div 
+          (click)="onCloseBtnClick('done')"
+          class="close-btn"
         >
-          Enter
-        </a>
-        <a
-          (click)="onCancelBtnClick('walletPin')"
-          class="btn cancel-btn"
-          href="#"
-        >
-          Cancel
-        </a>
-      </div>
-      <div
-        (click)="onCloseBtnClick('walletPin')"
-        class="close-btn"
-      >
-        x
-      </div>
-    </div>
-  </div>
-  <div 
-    *ngIf="deviceData.currentStep == 7"
-    id="configuration-done"
-    class="popup recovery"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Confirmation</p>
-        <p class="description">Please wait a few seconds. While your device is being configurated</p>
-        <p class="sub-description">
-          Do not Power Off your device
-        </p>
-        <div class="icon loading-circle"></div>
-      </div>
-      <div class="close-btn">
-        x
-      </div>
-    </div>
-  </div>
-  <div
-    *ngIf="deviceData.currentStep == 6"
-    id="word-confirmation" 
-    class="popup word-confirmation"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Recovery Seed Setup</p>
-        <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
-        <div class="word-list">
-          <li
-              *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-              (click)="onRecoveryWordClick(word, 'reRecoveryStep')"
-            >
-              {{ word }}
-            </li>
+          x
         </div>
       </div>
-      <div class="enter-cancel-btn">
-        <a 
-          class="btn enter-btn"
-          href="#"
+    </div>
+    <div
+      *ngIf="deviceData.currentStep == 8"
+      id="get-device-pin"
+      class="popup pin"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="description">Enter wallet pin</p>
+          <div class="virtual-keyboard">
+            <ul>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(0, 3)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(3, 6)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(6, 10)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'walletPin')"
+                >
+                </li>
+              </div>
+            </ul>
+            <div class="value-container">
+              <span 
+                *ngFor="let pinItem of deviceData.walletPin.split('')"
+                class="item"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="enter-cancel-btn">
+          <a
+            (click)="onEnterBtnClick('walletPin')"
+            class="btn enter-btn"
+          >
+            Enter
+          </a>
+          <a
+            (click)="onCancelBtnClick('walletPin')"
+            class="btn cancel-btn"
+          >
+            Cancel
+          </a>
+        </div>
+        <div
+          (click)="onCloseBtnClick('walletPin')"
+          class="close-btn"
         >
-          Next
-        </a>
-      </div>
-      <div
-        (click)="onCloseBtnClick()"
-        class="close-btn"
-      >
-        x
+          x
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    *ngIf="deviceData.currentStep == 5"
-    id="word-confirmation1"
-    class="popup word-confirmation"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Confirmation</p>
-        <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
-        <div class="word-list">
-          <ul>
+    <div 
+      *ngIf="deviceData.currentStep == 7"
+      id="configuration-done"
+      class="popup recovery"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Confirmation</p>
+          <p class="description">Please wait a few seconds. While your device is being configurated</p>
+          <p class="sub-description">
+            Do not Power Off your device
+          </p>
+          <div class="icon loading-circle"></div>
+        </div>
+        <div class="close-btn">
+          x
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="deviceData.currentStep == 6"
+      id="word-confirmation" 
+      class="popup word-confirmation"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Recovery Seed Setup</p>
+          <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
+          <div class="word-list">
             <li
-              *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-              (click)="onRecoveryWordClick(word, 'recoveryStep')"
-            >
-              {{ word }}
-            </li>
-          </ul>
+                *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
+                (click)="onRecoveryWordClick(word, 'reRecoveryStep')"
+              >
+                {{ word }}
+              </li>
+          </div>
         </div>
-      </div>
-      <div class="enter-cancel-btn">
-        <a
+        <div class="enter-cancel-btn">
+          <a 
+            class="btn enter-btn"
+          >
+            Next
+          </a>
+        </div>
+        <div
           (click)="onCloseBtnClick()"
-          class="btn enter-btn"
-          href="#"
+          class="close-btn"
         >
-          Back
-        </a>
-        <a
-          (click)="onEnterBtnClick('confirmRecoveryWord2')"
-          class="btn cancel-btn"
-          href="#"
-        >
-          Continue
-        </a>
-      </div>
-      <div 
-        (click)="onCloseBtnClick()"
-        class="close-btn"
-      >
-        x
-      </div>
-    </div>
-  </div>
-  <div
-    *ngIf="deviceData.currentStep == 4"
-    id="recovery-setup"
-    class="popup recovery
-  ">
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Recovery Seed Setup</p>
-        <p class="description">
-          On your DEVICE. You will now see a unique combination of 24 words,
-          which will allow you to recover your accounts in case you lose your device.
-          The orders of the words is very important. Please write down all these words
-          carefully. Never make a digital copy of your recovery seed and never upload it online.
-          Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses
-          incurred through the client's improper care of sensitive information
-        </p>
-        <div class="icon">
-          <img src="./assets/icons/pencil.png">
+          x
         </div>
-        <p class="sub-description">
-          Writedown the 24 words from the DEVICE into the recovery card.
-        </p>
-      </div>
-      <div
-        (click)="onCloseBtnClick('recoveryCard')"
-        class="close-btn"
-      >
-        x
       </div>
     </div>
-  </div>
-  <div 
-    *ngIf="deviceData.currentStep == 3"
-    id="confirm-device-pin" 
-    class="popup pin"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="description">Please Reenter.</p>
-        <p class="description">The NEW PIN</p>
-        <div class="virtual-keyboard">
-          <ul>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(0, 3)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
+    <div
+      *ngIf="deviceData.currentStep == 5"
+      id="word-confirmation1"
+      class="popup word-confirmation"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Confirmation</p>
+          <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex + 1 }}</b> of the recovery sheet</p>
+          <div class="word-list">
+            <ul>
+              <li
+                *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
+                (click)="onRecoveryWordClick(word, 'recoveryStep')"
               >
+                {{ word }}
               </li>
-            </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(3, 6)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
-              >
-              </li>
-            </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(6, 10)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
-              >
-              </li>
-            </div>
-          </ul>
-          <div class="value-container">
-            <span 
-              *ngFor="let pinItem of reDevicePin.split('')"
-              class="item"
-            >
-            </span>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="enter-cancel-btn">
-        <a
-          (click)="onEnterBtnClick('reDevicePin')"
-          class="btn enter-btn" 
-          href="#"
+        <div class="enter-cancel-btn">
+          <a
+            (click)="onCloseBtnClick()"
+            class="btn enter-btn"
+          >
+            Back
+          </a>
+          <a
+            (click)="onEnterBtnClick('confirmRecoveryWord2')"
+            class="btn cancel-btn"
+          >
+            Continue
+          </a>
+        </div>
+        <div 
+          (click)="onCloseBtnClick()"
+          class="close-btn"
         >
-          Enter
-        </a>
-        <a 
-          (click)="onCancelBtnClick('reDevicePin')"
-          class="btn cancel-btn"
-          href="#"
-        >
-          Cancel
-        </a>
-      </div>
-      <div
-        (click)="onCloseBtnClick('reDevicePin')"
-        class="close-btn"
-      >
-        x
+          x
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    *ngIf="deviceData.currentStep == 2"
-    id="get-device-pin"
-    class="popup pin"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="description">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>
-        <div class="virtual-keyboard">
-          <ul>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(0, 3)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+    <div
+      *ngIf="deviceData.currentStep == 4"
+      id="recovery-setup"
+      class="popup recovery
+    ">
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Recovery Seed Setup</p>
+          <p class="description">
+            On your DEVICE. You will now see a unique combination of 24 words,
+            which will allow you to recover your accounts in case you lose your device.
+            The orders of the words is very important. Please write down all these words
+            carefully. Never make a digital copy of your recovery seed and never upload it online.
+            Keep your recovery seed in a safe place. DEVICE cannot be held liable for financial losses
+            incurred through the client's improper care of sensitive information
+          </p>
+          <div class="icon">
+            <img src="./assets/icons/pencil.png">
+          </div>
+          <p class="sub-description">
+            Writedown the 24 words from the DEVICE into the recovery card.
+          </p>
+        </div>
+        <div
+          (click)="onCloseBtnClick('recoveryCard')"
+          class="close-btn"
+        >
+          x
+        </div>
+      </div>
+    </div>
+    <div 
+      *ngIf="deviceData.currentStep == 3"
+      id="confirm-device-pin" 
+      class="popup pin"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="description">Please Reenter.</p>
+          <p class="description">The NEW PIN</p>
+          <div class="virtual-keyboard">
+            <ul>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(0, 3)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(3, 6)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(6, 10)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'reDevicePin')"
+                >
+                </li>
+              </div>
+            </ul>
+            <div class="value-container">
+              <span 
+                *ngFor="let pinItem of reDevicePin.split('')"
+                class="item"
               >
-              </li>
+              </span>
             </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(3, 6)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
-              >
-              </li>
-            </div>
-            <div class="row">
-              <li 
-                *ngFor="let key of keyMap.slice(6, 10)"
-                class="key"
-                (click)="onVirtualKeyBoardClick(key, 'devicePin')"
-              >
-              </li>
-            </div>
-          </ul>
-          <div class="value-container">
-            <span 
-              *ngFor="let pinItem of deviceData.devicePin.split('')"
-              class="item"
-            >
-            </span>
           </div>
         </div>
-      </div>
-      <div class="enter-cancel-btn">
-        <a
-          (click)="onEnterBtnClick('devicePin')"
-          class="btn enter-btn"
-          href="#"
+        <div class="enter-cancel-btn">
+          <a
+            (click)="onEnterBtnClick('reDevicePin')"
+            class="btn enter-btn" 
+          >
+            Enter
+          </a>
+          <a 
+            (click)="onCancelBtnClick('reDevicePin')"
+            class="btn cancel-btn"
+          >
+            Cancel
+          </a>
+        </div>
+        <div
+          (click)="onCloseBtnClick('reDevicePin')"
+          class="close-btn"
         >
-          Enter
-        </a>
-        <a
-          (click)="onCancelBtnClick('devicePin')"
-          class="btn cancel-btn"
-          href="#"
-        >
-          Cancel
-        </a>
-      </div>
-      <div
-        (click)="onCloseBtnClick('devicePin')"
-        class="close-btn"
-      >
-        x
-      </div>
-    </div>
-  </div>
-  <div
-    *ngIf="deviceData.currentStep == 1"
-    id="get-device-name" 
-    class="popup"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Welcome to Icellet Setup!</p>
-        <p class="description">Setting up your device will only take a few minutes.</p>
-        <p class="description">When you're done. You can start using your wallet.</p>
-        <div class="input">
-          <input
-            [(ngModel)]="deviceData.deviceName"
-            type="text"
-            placeholder="Please enter your device name!"
-          />
+          x
         </div>
       </div>
-      <div class="enter-cancel-btn">
-        <a
-          (click)="onEnterBtnClick('setDeviceName')"
-          class="btn enter-btn"
-          href="#"
-        >
-          Enter
-        </a>
-        <a
-          (click)="onCancelBtnClick('setDeviceName')"
-          class="btn cancel-btn"
-          href="#"
-        >
-          Cancel
-        </a>
-      </div>
-      <div 
-        (click)="onCloseBtnClick('setDeviceName')"
-        class="close-btn"
-      >
-        x
-      </div>
     </div>
-  </div>
-  <div 
-    *ngIf="deviceData.currentStep == 0"
-    id="connected"
-    class="popup"
-  >
-    <!-- overlay to make screenblur -->
-    <div class="overlay"></div>
-    <div class="pannel">
-      <div class="container">
-        <p class="heading">Device Connected</p>
-        <p class="description">Now you can configure your device</p>
-        <div class="icon">
-          <img src="./assets/icons/phone.png">
+    <div
+      *ngIf="deviceData.currentStep == 2"
+      id="get-device-pin"
+      class="popup pin"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="description">Choice a strong pin to protect your device from unauthorized access. the number are display on your device</p>
+          <div class="virtual-keyboard">
+            <ul>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(0, 3)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(3, 6)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                >
+                </li>
+              </div>
+              <div class="row">
+                <li 
+                  *ngFor="let key of keyMap.slice(6, 10)"
+                  class="key"
+                  (click)="onVirtualKeyBoardClick(key, 'devicePin')"
+                >
+                </li>
+              </div>
+            </ul>
+            <div class="value-container">
+              <span 
+                *ngFor="let pinItem of deviceData.devicePin.split('')"
+                class="item"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="enter-cancel-btn">
+          <a
+            (click)="onEnterBtnClick('devicePin')"
+            class="btn enter-btn"
+          >
+            Enter
+          </a>
+          <a
+            (click)="onCancelBtnClick('devicePin')"
+            class="btn cancel-btn"
+          >
+            Cancel
+          </a>
+        </div>
+        <div
+          (click)="onCloseBtnClick('devicePin')"
+          class="close-btn"
+        >
+          x
         </div>
       </div>
-      <div 
-        (click)="onCloseBtnClick('deviceConnected')"
-        class="close-btn"
-      >
-        x
+    </div>
+    <div
+      *ngIf="deviceData.currentStep == 1"
+      id="get-device-name" 
+      class="popup"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Welcome to Icellet Setup!</p>
+          <p class="description">Setting up your device will only take a few minutes.</p>
+          <p class="description">When you're done. You can start using your wallet.</p>
+          <div class="input">
+            <input
+              [(ngModel)]="deviceData.deviceName"
+              type="text"
+              placeholder="Please enter your device name!"
+            />
+          </div>
+        </div>
+        <div class="enter-cancel-btn">
+          <a
+            (click)="onEnterBtnClick('setDeviceName')"
+            class="btn enter-btn"
+          >
+            Enter
+          </a>
+          <a
+            (click)="onCancelBtnClick('setDeviceName')"
+            class="btn cancel-btn"
+          >
+            Cancel
+          </a>
+        </div>
+        <div 
+          (click)="onCloseBtnClick('setDeviceName')"
+          class="close-btn"
+        >
+          x
+        </div>
       </div>
     </div>
-  </div>
+    <div 
+      *ngIf="deviceData.currentStep == 0"
+      id="connected"
+      class="popup"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Device Connected</p>
+          <p class="description">Now you can configure your device</p>
+          <div class="icon">
+            <img src="./assets/icons/phone.png">
+          </div>
+        </div>
+        <div 
+          (click)="onCloseBtnClick('deviceConnected')"
+          class="close-btn"
+        >
+          x
+        </div>
+      </div>
+    </div>
+  </section>
 </section>

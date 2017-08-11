@@ -12,6 +12,7 @@ import { store } from './core/store';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './shared/component/sidebar/sidebar.component';
 import { WalletComponent } from './core/component/wallet/wallet.component';
+import { PortfolioComponent } from './core/component/portfolio/portfolio.component';
 
 // Service
 import { DeviceService } from './shared/service/device.service';
@@ -19,8 +20,17 @@ import { DeviceService } from './shared/service/device.service';
 // Modules
 const route = [
   {
-    path: '',
+    path: 'wallet',
     component: WalletComponent
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent
+  },
+  {
+    path: '',
+    redirectTo: 'wallet',
+    pathMatch: 'full'
   }
 ];
 
@@ -28,7 +38,8 @@ const route = [
   declarations: [
     AppComponent,
     SidebarComponent,
-    WalletComponent
+    WalletComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

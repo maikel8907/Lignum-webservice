@@ -78,6 +78,13 @@ aside.sidebar.sub nav.side-menu li a {
   text-align: right;
 }
 
+aside.main ul li.active {
+  background: #114b5f;
+}
+
+aside.main ul li.active a {
+  color: #fa9c00 !important;
+}
 /*--------------------------------------------
 //  END OF SIDEBAR
 --------------------------------------------*/

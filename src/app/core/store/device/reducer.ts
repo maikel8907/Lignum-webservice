@@ -44,13 +44,12 @@ export function deviceReducer(state: Object = initialState, action: DeviceAction
       _state.walletPin = walletPin;
       _state.currentStep = currentStep;
       _state.recoveryWordList = recoveryWordList;
-    return _state;
+    break;
 
     case deviceAction.SET_CONNECT_STATUS:
       _state.isConnect = action.payload;
-    return _state;
-
-    default:
-    return _state;
+    break;
   }
+
+  return _state;
 }

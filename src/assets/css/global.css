@@ -16,7 +16,6 @@
   CSS USE FOR GLOBAL SELECTOR
 */
 
-
 body {
   font-family: avenir;
   margin: 0;
@@ -33,4 +32,9 @@ p {
 
 a {
   text-decoration: none;
+}
+
+app-wallet,
+app-portfolio {
+  width: 100%;
 }

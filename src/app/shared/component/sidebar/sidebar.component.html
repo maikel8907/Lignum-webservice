@@ -12,11 +12,34 @@
     <div class="bottom-container">
       <nav class="side-menu">
         <ul>
-          <li *ngFor="let navItem of navbarItems">
+          <li
+            *ngFor="let navItem of navbarItems"
+            (click)="setSidebarActiveItem(navItem.content)"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
             <a routerLink='{{ navItem.link }}'>{{ navItem.content }}</a>
           </li>
         </ul>
       </nav>
     </div>
+  </div>
+</aside>
+<aside
+  *ngIf="sidebarActiveItem !== 'portfolio'"
+  class="sub sidebar"
+>
+  <div class="container">
+    <nav class="side-menu">
+        <ul>
+          <li 
+            *ngFor="let navItem of subNavbarItems"
+            (click)="setSubSidebarActiveItem(navItem.content)"
+            [class.active]="navItem.content.toLowerCase() === subSidebarActiveItem" 
+          >
+            <a>{{ navItem.content }}</a>
+          </li>
+        </ul>
+      </nav>
   </div>
 </aside>
