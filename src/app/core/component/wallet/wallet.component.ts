@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 // Action to dispatch
@@ -21,18 +21,34 @@ export class WalletComponent implements  AfterViewInit {
   private reWalletPin = '';
   private recoveryWordIndex = 0;
   private recoveryWordStartIndex = 0;
+  private sidebarActiveItem = 'wallet';
   private deviceData: any = {};
 
   constructor(
     private store: Store<any>,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private elementRef: ElementRef
   ) {
-    store.subscribe(({ device }) => {
-      this.loadData(device);
+    store.subscribe(({ device, state }) => {
+      this.loadDeviceData(device);
+      this.loadStateData(state);
     });
   }
 
   ngAfterViewInit() {
+    window.addEventListener('keydown', (e) => {
+      if (this.sidebarActiveItem === 'wallet') {
+        switch (e.key) {
+          case 'Backspace':
+            this.onBackSpaceBtnPressed();
+          break;
+
+          case 'Enter':
+            this.onEnterBtnPress();
+          break;
+        }
+      }
+    });
   }
 
   callToDeviceApi(name, payload = {}) {
@@ -65,26 +81,39 @@ export class WalletComponent implements  AfterViewInit {
       break;
 
       case 'showFinishScene':
-        this.deviceService.callToDevice({ command: 'show-finish'});
+        this.deviceService.callToDevice({ command: 'show-finish' });
       break;
 
       case 'checkRecoveryPhaseFinish':
-        this.deviceService.callToDevice({ command: 'check-recovery-phase-finish'});
+        this.deviceService.callToDevice({ command: 'check-recovery-phase-finish' });
       break;
 
-      default:
+      case 'getWallet':
+        const walletInterval = setInterval(() => {
+          this.deviceService
+              .callToDevice({ command: 'get-wallet' })
+              .then((res) => {
+                if (res.status) {
+                  console.log(res.data);
+                  this.deviceData.wallet = res.data;
+                  this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
+                  clearInterval(walletInterval);
+                }
+              });
+        }, 1000);
       break;
     }
   }
 
-  loadData(payload) {
+  loadDeviceData(payload) {
     const {
       currentStep,
       recoveryWordList,
       deviceName,
       devicePin,
       walletPin,
-      isConnect
+      isConnect,
+      wallet
     } = payload;
 
     this.deviceData = {
@@ -93,8 +122,18 @@ export class WalletComponent implements  AfterViewInit {
       deviceName,
       devicePin,
       walletPin,
-      isConnect
+      isConnect,
+      wallet
     };
+  }
+
+  loadStateData(payload) {
+    const {
+      sidebarActiveItem,
+      subSidebarActiveItem
+    } = payload;
+
+    this.sidebarActiveItem = sidebarActiveItem;
   }
 
   onCloseBtnClick(popUpName) {
@@ -154,10 +193,40 @@ export class WalletComponent implements  AfterViewInit {
           this.deviceData.currentStep ++;
           this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
           this.callToDeviceApi('showFinishScene');
+          this.callToDeviceApi('getWallet');
         } else {
           alert(`Device pin can't be left blank`);
           this.reDevicePin = '';
         }
+      break;
+    }
+  }
+
+  onBackSpaceBtnPressed() {
+    const {
+      currentStep
+    } = this.deviceData;
+
+    switch (currentStep) {
+      case 2:
+        this.deviceData.devicePin = this.deviceData.devicePin.substring(0, this.deviceData.devicePin.length - 1);
+        this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
+      break;
+
+      case 3:
+        this.reDevicePin = this.reDevicePin.substring(0, this.reDevicePin.length - 1);
+      break;
+    }
+  }
+
+  onEnterBtnPress() {
+    const {
+      currentStep,
+    } = this.deviceData;
+
+    switch (currentStep) {
+      case 1:
+        this.onEnterBtnClick('setDeviceName');
       break;
     }
   }
@@ -219,8 +288,5 @@ export class WalletComponent implements  AfterViewInit {
       this.recoveryWordStartIndex
       = Math.floor(Math.random() * (this.recoveryWordIndex - (this.recoveryWordIndex - 6) + 1)) + (this.recoveryWordIndex - 5);
     }
-
-    console.log(this.recoveryWordStartIndex);
-    console.log(this.recoveryWordIndex);
   }
 }

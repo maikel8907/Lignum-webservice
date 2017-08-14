@@ -55,14 +55,12 @@ export class SidebarComponent {
     private router: Router
   ) {
     router.events.subscribe((currentRoute: any) => {
-      this.store.dispatch(stateAction.setSubSidebarActiveItem(currentRoute.url.substr(1)));
-      console.log(currentRoute.url.substr(1));
+      this.store.dispatch(stateAction.setSidebarActiveItem(currentRoute.url.substr(1)));
     });
 
     store.subscribe(({ device, state }) => {
       this.loadDeviceData(device);
       this.loadStateData(state);
-      console.log(this.sidebarActiveItem);
     });
   }
 
@@ -89,5 +87,10 @@ export class SidebarComponent {
   setSidebarActiveItem(item: string) {
     const _item = item.toLowerCase();
     this.store.dispatch(stateAction.setSidebarActiveItem(_item));
+  }
+
+  setSubSidebarActiveItem(item: string) {
+    const _item = item.toLowerCase();
+    this.store.dispatch(stateAction.setSubSidebarActiveItem(_item));
   }
 }

@@ -13,7 +13,8 @@ const initialState = {
     btc: 10
   },
   keyMap: [],
-  recoveryWordList: []
+  recoveryWordList: [],
+  wallet: []
 };
 
 class DeviceActionInterface implements Action {
@@ -36,7 +37,8 @@ export function deviceReducer(state: Object = initialState, action: DeviceAction
         devicePin,
         walletPin,
         currentStep,
-        recoveryWordList
+        recoveryWordList,
+        wallet
       } = action.payload;
 
       _state.deviceName = deviceName;
@@ -44,6 +46,7 @@ export function deviceReducer(state: Object = initialState, action: DeviceAction
       _state.walletPin = walletPin;
       _state.currentStep = currentStep;
       _state.recoveryWordList = recoveryWordList;
+      _state.wallet = wallet;
     break;
 
     case deviceAction.SET_CONNECT_STATUS:

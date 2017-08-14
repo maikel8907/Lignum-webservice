@@ -47,23 +47,23 @@ export class DeviceService {
   }
 
   checkDeviceConnection() {
-    // setInterval(() => {
-    //   this.callToDevice({ command: 'get-device-status' }).then((res) => {
-    //     if ((res && !res.error)) {
-    //       if (!this.deviceData.isConnect) {
-    //         this.store.dispatch(deviceAction.setConnectStatus(true));
-    //         this.callToDevice({ command: 'check-is-setup' });
-    //       }
-    //     } else {
-    //       this.store.dispatch(deviceAction.setConnectStatus(false));
-    //     }
-    //   });
+    setInterval(() => {
+      this.callToDevice({ command: 'get-device-status' }).then((res) => {
+        if ((res && !res.error)) {
+          if (!this.deviceData.isConnect) {
+            this.store.dispatch(deviceAction.setConnectStatus(true));
+            this.callToDevice({ command: 'check-is-setup' });
+          }
+        } else {
+          this.store.dispatch(deviceAction.setConnectStatus(false));
+        }
+      });
 
-    //   this.callToDevice({ command: 'get-device-data' }).then((res) => {
-    //     if ((res && !res.error) && (!this.deviceData.isConnect)) {
-    //       this.store.dispatch(deviceAction.setDeviceData(res));
-    //     }
-    //   });
-    // }, 500);
+      this.callToDevice({ command: 'get-device-data' }).then((res) => {
+        if ((res && !res.error) && (!this.deviceData.isConnect)) {
+          this.store.dispatch(deviceAction.setDeviceData(res));
+        }
+      });
+    }, 500);
   }
 }

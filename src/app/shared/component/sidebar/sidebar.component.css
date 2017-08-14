@@ -30,6 +30,7 @@ aside.sidebar a {
 aside.sidebar a:hover {
   color: #fa9c00 !important;
   background: #114b5f;
+  cursor: pointer;
 }
 
 aside.main>div.container div.top-container {
@@ -78,11 +79,11 @@ aside.sidebar.sub nav.side-menu li a {
   text-align: right;
 }
 
-aside.main ul li.active {
+aside ul li.active {
   background: #114b5f;
 }
 
-aside.main ul li.active a {
+aside ul li.active a {
   color: #fa9c00 !important;
 }
 /*--------------------------------------------
