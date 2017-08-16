@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './shared/component/sidebar/sidebar.component';
 import { WalletComponent } from './core/component/wallet/wallet.component';
 import { PortfolioComponent } from './core/component/portfolio/portfolio.component';
+import { ExchangeComponent } from './core/component/exchange/exchange.component';
 
 // Service
 import { DeviceService } from './shared/service/device.service';
@@ -28,6 +29,10 @@ const route = [
     component: PortfolioComponent
   },
   {
+    path: 'exchange',
+    component: ExchangeComponent
+  },
+  {
     path: '',
     redirectTo: 'wallet',
     pathMatch: 'full'
@@ -39,7 +44,8 @@ const route = [
     AppComponent,
     SidebarComponent,
     WalletComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ExchangeComponent
   ],
   imports: [
     BrowserModule,

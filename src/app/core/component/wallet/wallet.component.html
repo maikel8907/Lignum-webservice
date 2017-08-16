@@ -3,7 +3,7 @@
   class="main"
 >
   <div 
-    *ngIf="!isConnect"
+    *ngIf="!deviceData.isConnect"
     class="connect-nortification"
   >
     <img src="./assets/icons/connect.png" />
@@ -11,6 +11,19 @@
       <p>Welcome to ICELLET Setup!</p>
       <p>Please connect the</p>
       <p>Device to computer</p>
+    </div>
+  </div>
+
+
+  <div 
+    *ngIf="(deviceData.isConnect)"
+    class="connect-nortification"
+  >
+    <img src="./assets/icons/connect.png" />
+    <div class="description">
+      <p>Your device is setup!</p>
+      <p>Go to exchange</p>
+      <p>To start exchange money</p>
     </div>
   </div>
 
@@ -40,8 +53,29 @@
         </div>
       </div>
     </div>
-    <div
+    <div 
       *ngIf="deviceData.currentStep == 8"
+      id="configuration-done"
+      class="popup recovery"
+    >
+      <!-- overlay to make screenblur -->
+      <div class="overlay"></div>
+      <div class="pannel">
+        <div class="container">
+          <p class="heading">Confirmation</p>
+          <p class="description">Please wait a few seconds. While your device is being configurated</p>
+          <p class="sub-description">
+            Do not Power Off your device
+          </p>
+          <div class="icon loading-circle"></div>
+        </div>
+        <div class="close-btn">
+          x
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="deviceData.currentStep == 7"
       id="get-device-pin"
       class="popup pin"
     >
@@ -108,27 +142,6 @@
         </div>
       </div>
     </div>
-    <div 
-      *ngIf="deviceData.currentStep == 7"
-      id="configuration-done"
-      class="popup recovery"
-    >
-      <!-- overlay to make screenblur -->
-      <div class="overlay"></div>
-      <div class="pannel">
-        <div class="container">
-          <p class="heading">Confirmation</p>
-          <p class="description">Please wait a few seconds. While your device is being configurated</p>
-          <p class="sub-description">
-            Do not Power Off your device
-          </p>
-          <div class="icon loading-circle"></div>
-        </div>
-        <div class="close-btn">
-          x
-        </div>
-      </div>
-    </div>
     <div
       *ngIf="deviceData.currentStep == 6"
       id="word-confirmation" 
@@ -139,13 +152,13 @@
       <div class="pannel">
         <div class="container">
           <p class="heading">Recovery Seed Setup</p>
-          <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex }}</b> of the recovery sheet</p>
+          <p class="description">In the list below, select the word <b>number {{ recoveryWord.key }}</b> of the recovery sheet</p>
           <div class="word-list">
             <li
-                *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-                (click)="onRecoveryWordClick(word, 'reRecoveryStep')"
+                *ngFor="let word of recoveryWordList"
+                (click)="onRecoveryWordClick(word.word, 'reRecoveryStep')"
               >
-                {{ word }}
+                {{ word.word }}
               </li>
           </div>
         </div>
@@ -174,14 +187,14 @@
       <div class="pannel">
         <div class="container">
           <p class="heading">Confirmation</p>
-          <p class="description">In the list below, select the word <b>number {{ recoveryWordIndex + 1 }}</b> of the recovery sheet</p>
+          <p class="description">In the list below, select the word <b>number {{  recoveryWord.key }}</b> of the recovery sheet</p>
           <div class="word-list">
             <ul>
               <li
-                *ngFor="let word of deviceData.recoveryWordList.slice(recoveryWordStartIndex, recoveryWordStartIndex + 6)"
-                (click)="onRecoveryWordClick(word, 'recoveryStep')"
+                *ngFor="let word of recoveryWordList"
+                (click)="onRecoveryWordClick(word.word, 'recoveryStep')"
               >
-                {{ word }}
+                {{ word.word }}
               </li>
             </ul>
           </div>

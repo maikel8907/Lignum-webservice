@@ -1,0 +1,39 @@
+/*
+  CONTAINER
+*/
+
+section.main {
+  width: calc(100% - 480px);
+  height: 100%;
+  position: relative;
+  right: 0;
+  margin-left: 480px;
+  font-family: lato;
+}
+
+div.ballance,
+div.method {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+div.ballance {
+  max-width: 690px;
+  padding-top: 80px;
+}
+
+div.ballance p {
+  font-size: 25px;
+  color: #fff;
+}
+
+div.method {
+  max-width: 413px;
+  padding-top: 52px;
+}
+
+div.method p {
+  font-size: 20px;
+  color: #27abbe;
+}

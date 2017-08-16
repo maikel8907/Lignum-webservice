@@ -75,6 +75,11 @@ aside.sub>div.container {
   padding-top: 152px;
 }
 
+aside.sidebar.sub nav.side-menu {
+  max-height: 679px;
+  overflow: scroll;
+}
+
 aside.sidebar.sub nav.side-menu li a {
   text-align: right;
 }

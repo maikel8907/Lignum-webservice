@@ -32,9 +32,11 @@ p {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 app-wallet,
-app-portfolio {
+app-portfolio,
+app-exchange {
   width: 100%;
 }

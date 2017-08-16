@@ -10,7 +10,7 @@ import * as stateAction from '../../../core/store/state/actions';
   styleUrls: ['sidebar.component.css']
 })
 export class SidebarComponent {
-  private navbarItems = [
+  private sidebarItems = [
     {
       content: 'Portfolio',
       link: '/portfolio'
@@ -33,7 +33,7 @@ export class SidebarComponent {
     }
   ];
 
-  private subNavbarItems = [
+  private subSidebarItems = [
     {
       content: 'graphics'
     },
@@ -41,6 +41,8 @@ export class SidebarComponent {
       content: 'chart'
     }
   ];
+
+  private isConnect = false;
 
   private ballance = {
     btc: 0,
@@ -55,6 +57,12 @@ export class SidebarComponent {
     private router: Router
   ) {
     router.events.subscribe((currentRoute: any) => {
+      const _currentRoute = currentRoute;
+
+      if (_currentRoute.url === '/') {
+        _currentRoute.url = '/wallet';
+      }
+
       this.store.dispatch(stateAction.setSidebarActiveItem(currentRoute.url.substr(1)));
     });
 
@@ -70,27 +78,32 @@ export class SidebarComponent {
       usd
     } = payload.ballance;
 
+    const {
+      isConnect
+    } = payload;
+
     this.ballance.btc = btc;
     this.ballance.usd = usd;
+    this.isConnect = isConnect;
   }
 
   loadStateData(payload) {
     const {
       sidebarActiveItem,
-      subSidebarActiveItem
+      subSidebarActiveItem,
+      subSidebarItems
     } = payload;
 
     this.sidebarActiveItem = sidebarActiveItem;
     this.subSidebarActiveItem = subSidebarActiveItem;
+    this.subSidebarItems = subSidebarItems;
   }
 
   setSidebarActiveItem(item: string) {
-    const _item = item.toLowerCase();
-    this.store.dispatch(stateAction.setSidebarActiveItem(_item));
+    this.store.dispatch(stateAction.setSidebarActiveItem(item));
   }
 
   setSubSidebarActiveItem(item: string) {
-    const _item = item.toLowerCase();
-    this.store.dispatch(stateAction.setSubSidebarActiveItem(_item));
+    this.store.dispatch(stateAction.setSubSidebarActiveItem(item));
   }
 }

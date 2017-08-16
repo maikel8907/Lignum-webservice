@@ -15,14 +15,14 @@ import { DeviceService } from '../../../shared/service/device.service';
   styleUrls: ['wallet.component.css']
 })
 export class WalletComponent implements  AfterViewInit {
-  private recoveryWordList = [];
   private keyMap = [];
   private reDevicePin = '';
   private reWalletPin = '';
-  private recoveryWordIndex = 0;
+  private recoveryWord: any = {};
   private recoveryWordStartIndex = 0;
   private sidebarActiveItem = 'wallet';
   private deviceData: any = {};
+  private recoveryWordList = [];
 
   constructor(
     private store: Store<any>,
@@ -70,7 +70,10 @@ export class WalletComponent implements  AfterViewInit {
         const getDeviceRecoveryWordList = setInterval(() => {
           this.deviceService.callToDevice({ command: 'get-recovery-phase' }).then((res) => {
             if (res.status) {
-              this.deviceData.recoveryWordList = Object.keys(res.data).map(key => res.data[key]);
+              this.deviceData.recoveryWordList = Object.keys(res.data).map(key => ({
+                'key': key,
+                'word': res.data[key]
+              }));
               this.deviceData.currentStep ++;
               this.getRecoveryWordIndex();
               this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
@@ -94,9 +97,10 @@ export class WalletComponent implements  AfterViewInit {
               .callToDevice({ command: 'get-wallet' })
               .then((res) => {
                 if (res.status) {
-                  console.log(res.data);
                   this.deviceData.wallet = res.data;
+                  this.deviceData.currentStep = 9;
                   this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
+                  this.callToDeviceApi('showFinishScene');
                   clearInterval(walletInterval);
                 }
               });
@@ -106,25 +110,7 @@ export class WalletComponent implements  AfterViewInit {
   }
 
   loadDeviceData(payload) {
-    const {
-      currentStep,
-      recoveryWordList,
-      deviceName,
-      devicePin,
-      walletPin,
-      isConnect,
-      wallet
-    } = payload;
-
-    this.deviceData = {
-      currentStep,
-      recoveryWordList,
-      deviceName,
-      devicePin,
-      walletPin,
-      isConnect,
-      wallet
-    };
+    this.deviceData = payload;
   }
 
   loadStateData(payload) {
@@ -192,8 +178,8 @@ export class WalletComponent implements  AfterViewInit {
         if (this.deviceData.walletPin.trim()) {
           this.deviceData.currentStep ++;
           this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
-          this.callToDeviceApi('showFinishScene');
           this.callToDeviceApi('getWallet');
+          this.callToDeviceApi('checkRecoveryPhaseFinish');
         } else {
           alert(`Device pin can't be left blank`);
           this.reDevicePin = '';
@@ -259,34 +245,24 @@ export class WalletComponent implements  AfterViewInit {
   }
 
   onRecoveryWordClick(word, type) {
-    if (this.deviceData.recoveryWordList[this.recoveryWordIndex] === word) {
+    if (this.recoveryWord.word === word) {
       this.getRecoveryWordIndex();
       this.deviceData.currentStep ++;
       this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
       if (type === 'reRecoveryStep') {
-        this.callToDeviceApi('checkRecoveryPhaseFinish');
-
-        setTimeout(() => {
-            this.callToDeviceApi('keyboardMap');
-            this.deviceData.currentStep ++;
-            this.store.dispatch(deviceAction.setDeviceData(this.deviceData));
-        }, 2000);
+        this.callToDeviceApi('keyboardMap');
       }
     } else {
-      alert('wrong word please check again');
+      alert('Wrong word please check again');
     }
   }
 
   getRecoveryWordIndex() {
-    this.recoveryWordIndex = Math.floor(Math.random() * (23));
+    const recoveryWordIndex = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
 
-    if (this.recoveryWordIndex <= 6) {
-      this.recoveryWordStartIndex = 0;
-    } else if (this.recoveryWordIndex >= 17) {
-      this.recoveryWordStartIndex = 17;
-    } else {
-      this.recoveryWordStartIndex
-      = Math.floor(Math.random() * (this.recoveryWordIndex - (this.recoveryWordIndex - 6) + 1)) + (this.recoveryWordIndex - 5);
-    }
+    this.recoveryWordStartIndex = Math.floor(Math.random() * (16 - 0 + 1)) + 0;
+    this.recoveryWordList = this.deviceData.recoveryWordList.map(element => element);
+    this.recoveryWordList = this.recoveryWordList.splice(this.recoveryWordStartIndex, 6);
+    this.recoveryWord = this.recoveryWordList[recoveryWordIndex];
   }
 }
