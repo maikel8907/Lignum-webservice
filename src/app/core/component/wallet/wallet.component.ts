@@ -92,9 +92,10 @@ export class WalletComponent implements  AfterViewInit {
       break;
 
       case 'getWallet':
+        this.deviceService.callToDevice({ command: 'show-finish', data: {} });
         const walletInterval = setInterval(() => {
           this.deviceService
-              .callToDevice({ command: 'get-wallet' })
+              .callToDevice({ command: 'get-wallet', data: {} })
               .then((res) => {
                 if (res.status) {
                   this.deviceData.wallet = res.data;

@@ -100,7 +100,9 @@ export class SidebarComponent {
   }
 
   setSidebarActiveItem(item: string) {
-    this.store.dispatch(stateAction.setSidebarActiveItem(item));
+    const _item = item.toLowerCase();
+
+    this.store.dispatch(stateAction.setSidebarActiveItem(_item));
   }
 
   setSubSidebarActiveItem(item: string) {

@@ -1,0 +1,140 @@
+/*
+  CONTAINER
+*/
+
+section.main {
+  width: calc(100% - 480px);
+  height: 100%;
+  position: relative;
+  right: 0;
+  margin-left: 480px;
+  font-family: lato;
+}
+
+div.ballance,
+div.method {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+div.ballance {
+  max-width: 690px;
+  padding-top: 80px;
+
+  p {
+    font-size: 25px;
+    color: #fff;
+  }
+}
+
+div.method {
+  max-width: 413px;
+  padding-top: 52px;
+
+  p {
+    font-size: 20px;
+    color: #27abbe;
+  }
+}
+
+/*
+  OVERLAY FOR POPUP
+*/
+div.popup {
+  width: 100%;
+
+  div.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+
+  div.pannel {
+    font-family: lato;
+    width: 100%;
+    max-width: 875px;
+    height: 753px;
+    padding-top: 50px; padding-bottom: 37px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    border: 4px solid #028394;
+    z-index: 20;
+    background: #093442;
+
+    div.coin-logo {
+      max-width: 105px;
+      max-height: 105px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    p.heading {
+      font-size: 25px;
+      color: #fff;
+      margin-top: 50px;
+    }
+
+    div.qr-code {
+      width: 245px;
+      height: 245px;
+      margin: 0 auto;
+      margin-top: 32px;
+      background: #000;
+    }
+
+    div.address {
+      p.heading {
+        font-size: 19px;
+      }
+
+      input {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        border: 0;
+        padding: 5px 5px;
+        text-align: center;
+        box-shadow: none;
+        margin-top: 10px;
+        background: #e0f2f6;
+        color: #285662;
+        font-size: 15px;
+      }
+    }
+
+    div.action {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 514px;
+      margin: 0 auto;
+      padding-top: 30px;
+
+      div.icon {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    div.close-btn {
+      font-size: 32px;
+      color: #028394;
+      position: absolute;
+      top: 5px; right: 15px;
+      cursor: pointer;
+    }
+  }
+}

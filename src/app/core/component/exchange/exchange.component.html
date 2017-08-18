@@ -10,6 +10,57 @@
   </div>
   <div class="method">
     <p class="send">Send</p>
-    <p class="receive">Receive</p>
+    <p
+      (click)="showReceivePopUp()"
+      class="receive"
+    >
+      Receive
+    </p>
+  </div>
+  <div 
+    *ngIf="isShowReceivePopUp"
+    class="popup"
+  >
+    <div class="overlay"></div>
+    <div class="pannel">
+      <div class="container">
+        <div class="coin-logo">
+          <img src="./assets/icons/btc-icon.png">
+        </div>
+        <p class="heading">Receive</p>
+        <div class="qr-code">
+          <qr-code [value]="'All QR Code data goes here!'" [size]="245"></qr-code>
+        </div>
+        <div class="address">
+          <p class="heading">
+            Your address is:
+          </p>
+          <p>
+            <input
+              type="text"
+              value="{{ selectedCoin.address }}"
+              readonly
+            />
+          </p>
+        </div>
+        <div class="action">
+          <div class="icon">
+            <img src="./assets/icons/copy.png">
+          </div>
+          <div class="icon">
+            <img src="./assets/icons/print.png">
+          </div>
+          <div class="icon">
+            <img src="./assets/icons/letter.png">
+          </div>
+        </div>
+      </div>
+      <div 
+        (click)="hideReceivePopUp()"
+        class="close-btn"
+      >
+        x
+      </div>
+    </div>
   </div>
 </section>

@@ -4,13 +4,13 @@ import * as stateAction from './actions';
 const initialState = {
   subSidebarItems: [
     {
-      content: 'graphics'
+      content: 'Graphics'
     },
     {
-      content: 'chart'
+      content: 'Chart'
     }
   ],
-  sidebarActiveItem: 'wallet',
+  sidebarActiveItem: 'Wallet',
   subSidebarActiveItem: 'graphics'
 };
 

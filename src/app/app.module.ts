@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { QRCodeModule } from 'angular2-qrcode';
 
 // Redux store
 import { store } from './core/store';
@@ -52,7 +53,8 @@ const route = [
     HttpModule,
     FormsModule,
     RouterModule.forRoot(route),
-    StoreModule.forRoot(store)
+    StoreModule.forRoot(store),
+    QRCodeModule
   ],
   providers: [DeviceService],
   bootstrap: [AppComponent]

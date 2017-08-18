@@ -11,12 +11,13 @@ import { DeviceService } from '../../../shared/service/device.service';
   moduleId: module.id,
   selector: 'app-exchange',
   templateUrl: 'exchange.component.html',
-  styleUrls: ['exchange.component.css']
+  styleUrls: ['exchange.component.scss']
 })
 export class ExchangeComponent implements OnInit {
   private deviceData: any = {};
   private subSidebarActiveItem: String = '';
   private selectedCoin = {};
+  private isShowReceivePopUp = false;
 
   constructor(
     private store: Store<any>,
@@ -28,6 +29,7 @@ export class ExchangeComponent implements OnInit {
 
       if (this.deviceData.wallet.length > 0) {
         this.selectedCoin = this.deviceData.wallet.filter(element => element.name === this.subSidebarActiveItem)[0];
+        console.log(this.selectedCoin);
       }
     });
   }
@@ -40,7 +42,6 @@ export class ExchangeComponent implements OnInit {
 
     if (subSidebarItems.length > 0) {
       this.store.dispatch(stateAction.setSubSidebarItems(subSidebarItems));
-      console.log(subSidebarItems[0].content)
       this.store.dispatch(stateAction.setSubSidebarActiveItem(subSidebarItems[0].content));
     }
   }
@@ -56,5 +57,13 @@ export class ExchangeComponent implements OnInit {
     } = payload;
 
     this.subSidebarActiveItem = subSidebarActiveItem;
+  }
+
+  hideReceivePopUp() {
+    this.isShowReceivePopUp = false;
+  }
+
+  showReceivePopUp() {
+    this.isShowReceivePopUp = true;
   }
 }
